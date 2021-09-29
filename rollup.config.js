@@ -4,10 +4,12 @@ import commonjs from '@rollup/plugin-commonjs'
 import { getBabelOutputPlugin } from '@rollup/plugin-babel'
 import pkg from './package.json'
 
+const isEikBuild = !!process.env.eik
+const outputFile = isEikBuild ? './dist/eik/index.js' : './dist/fabric-vue'
 const browsers = 'supports es6-module and > 2% in NO and not dead'
 const external = [
   'vue',
-  ...Object.keys(pkg.dependencies)
+  ...(isEikBuild ? [] : Object.keys(pkg.dependencies))
 ]
 
 const plugins = [
@@ -19,6 +21,6 @@ const plugins = [
 
 export default {
   input: 'index.js',
-  output: { file: './dist/fabric-vue.js', format: 'es', exports: 'named' },
+  output: { file: outputFile, format: 'es', exports: 'named' },
   plugins, external,
 }
