@@ -2,5 +2,4 @@
 
 ## development
 
-- Run `yarn dev`
-- Vite (from the `example` folder) should start a server on port 3003
+- Run `yarn dev`, this causes Vite (from the `example` folder) to start a server on port 3003
