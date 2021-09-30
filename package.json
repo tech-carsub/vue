@@ -15,7 +15,7 @@
     "build:eik": "eik=true npm run build",
     "site": "npm run site:build && npm run site:cloud",
     "site:build": "cd example && vite build",
-    "site:cloud": "cd example/dist && cp index.html 200.html && cp index.html 404.html"
+    "site:cloud": "cd example/dist && cp index.html 200.html && cp index.html 404.html && cp ../CNAME ."
   },
   "keywords": [],
   "author": "Dave Honneffer <pearofducks@gmail.com>",
