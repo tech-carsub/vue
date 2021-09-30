@@ -1,31 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Fabric: Vue</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fabric: Vue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
-
     <style>
-      f-docs-template {
-        visibility: hidden;
-      }
-      f-docs-template:defined {
-        visibility: visible;
-      }
+      f-docs-template { visibility: hidden; }
+      f-docs-template:defined { visibility: visible; }
     </style>
-    <link
-      rel="stylesheet"
-      href="https://assets.finn.no/pkg/@finn-no/fabric-css/v0/fabric.min.css"
-    />
-    <link
-      href="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js"
-      rel="modulepreload"
-    />
-    <link
-      href="https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js"
-      rel="modulepreload"
-    />
+    <link href="https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css" rel="stylesheet">
+    <link href="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js" rel="modulepreload" />
+    <link href="https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js" rel="modulepreload" />
   </head>
   <body>
     <f-docs-template>
@@ -37,68 +23,26 @@
               "title": "Components",
               "open": true,
               "items": [
-                {
-                  "title": "Button",
-                  "href": "/button"
-                },
-                {
-                  "title": "Slider",
-                  "href": "/slider"
-                },
-                {
-                  "title": "Switch",
-                  "href": "/switch"
-                },
-                {
-                  "title": "Toast",
-                  "href": "/toast"
-                },
-                {
-                  "title": "Modal",
-                  "href": "/modal"
-                },
-                {
-                  "title": "Breadcrumbds",
-                  "href": "/breadcrumbs"
-                },
-                {
-                  "title": "Forms",
-                  "href": "/forms"
-                },
-                {
-                  "title": "Box",
-                  "href": "/box"
-                },
-                {
-                  "title": "Card",
-                  "href": "/card"
-                },
-                {
-                  "title": "Tabs",
-                  "href": "/tabs"
-                },
-                {
-                  "title": "Expandable",
-                  "href": "/expandable"
-                },
-                {
-                  "title": "Steps",
-                  "href": "/steps"
-                }
+                { "title": "Button", "href": "/button" },
+                { "title": "Slider", "href": "/slider" },
+                { "title": "Switch", "href": "/switch" },
+                { "title": "Toast", "href": "/toast" },
+                { "title": "Modal", "href": "/modal" },
+                { "title": "Breadcrumbds", "href": "/breadcrumbs" },
+                { "title": "Forms", "href": "/forms" },
+                { "title": "Box", "href": "/box" },
+                { "title": "Card", "href": "/card" },
+                { "title": "Tabs", "href": "/tabs" },
+                { "title": "Expandable", "href": "/expandable" },
+                { "title": "Steps", "href": "/steps" }
               ]
             },
             {
               "title": "General",
               "open": false,
               "items": [
-                {
-                  "title": "Home",
-                  "href": "/"
-                },
-                {
-                  "title": "Icons",
-                  "href": "/icons"
-                }
+                { "title": "Home", "href": "/" },
+                { "title": "Icons", "href": "/icons" }
               ]
             }
           ]
@@ -107,26 +51,14 @@
       <main id="app" slot="content"></main>
       <script data-for="footer" type="application/json">
         {
-          "github": {
-            "name": "Github",
-            "href": "https://github.com/fabric-ds"
-          },
-          "slack": {
-            "name": "#finn-fabric",
-            "href": "https://sch-chat.slack.com/archives/C01GYKPJVFT"
-          }
+          "github": { "name": "Github", "href": "https://github.com/fabric-ds" },
+          "slack": { "name": "#finn-fabric", "href": "https://sch-chat.slack.com/archives/C01GYKPJVFT" }
         }
       </script>
     </f-docs-template>
 
     <script type="module" src="/src/main.js"></script>
-    <script
-      src="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js"
-      type="module"
-    ></script>
-    <script
-      src="https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js"
-      type="module"
-    ></script>
+    <script src="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js" type="module"></script>
+    <script src="https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js" type="module"></script>
   </body>
 </html>
