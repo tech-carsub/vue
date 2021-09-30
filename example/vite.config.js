@@ -14,7 +14,6 @@ const alias = Object.entries(pkg.imports).reduce((acc, [k, v]) => {
  * @type {import('vite').UserConfig}
  */
 export default {
-  base: "/vue/",
   plugins: [vue()],
   server: { host: "0.0.0.0", port: 3003 },
   resolve: { alias }

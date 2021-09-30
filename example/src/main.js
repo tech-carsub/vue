@@ -40,7 +40,7 @@ const routes = [
 
 const scrollBehavior = () => ({ top: 0 });
 const router = createRouter({
-  history: createWebHistory('/vue'),
+  history: createWebHistory(),
   routes,
   scrollBehavior,
 });
