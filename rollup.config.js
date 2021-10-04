@@ -15,7 +15,7 @@ const external = [
 
 const plugins = [
   vue(),
-  getBabelOutputPlugin({ presets: [['@babel/preset-env', { targets: browsers }]] }),
+  getBabelOutputPlugin({ presets: [['@babel/preset-env', { targets: browsers, bugfixes: true }]] }),
   nodeResolve(),
   commonjs(),
   terser()
