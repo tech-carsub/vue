@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Button" pkg-name="@fabric-ds/vue-button" compName="fButton" />
+    <setup title="Button" comp-name="fButton" />
 
     <section-header label="Example" />
 

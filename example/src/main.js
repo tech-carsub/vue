@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 // import ToastInstaller from "@fabric-ds/vue-toast";
 import { ShowToken, VariantHeading, SectionHeader } from './util.js';
 import DocsTable from './DocsTable.vue';
+import Setup from './Setup.vue';
 
 import Home from './examples/Home.vue';
 import Icons from './examples/Icons.vue';
@@ -20,6 +21,7 @@ import Card from './examples/Card.vue';
 import Tabs from './examples/Tabs.vue';
 import Expandable from './examples/Expandable.vue';
 import Steps from './examples/Steps.vue';
+import Pill from './examples/Pill.vue';
 
 const routes = [
   { path: '/', component: Home, name: 'home' },
@@ -36,6 +38,7 @@ const routes = [
   { path: '/tabs', component: Tabs, name: 'tabs' },
   { path: '/expandable', component: Expandable, name: 'expandable' },
   { path: '/steps', component: Steps, name: 'steps' },
+  { path: '/pill', component: Pill, name: 'pill' },
 ];
 
 const scrollBehavior = () => ({ top: 0 });
@@ -51,6 +54,7 @@ createApp(App)
   .component('variant-heading', VariantHeading)
   .component('section-header', SectionHeader)
   .component('docs-table', DocsTable)
+  .component('setup', Setup)
   .use(router)
   // .use(ToastInstaller)
   .mount('#app');
