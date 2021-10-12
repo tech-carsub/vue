@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isRoot" class="grid lg:grid-cols-3 gap-16">
+  <div v-if="route.name === 'home'" class="grid lg:grid-cols-3 gap-16">
     <div class="lg:col-span-2">
       <router-view />
     </div>
@@ -24,12 +24,8 @@ code {
 }
 </style>
 
-<script>
-export default {
-  computed: {
-    isRoot() {
-      return document.location.pathname == '/';
-    },
-  },
-};
+<script setup>
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 </script>

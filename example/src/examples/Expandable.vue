@@ -1,8 +1,7 @@
 <template>
   <div>
-    <setup title="Expandable" pkg-name="@fabric-ds/vue-expandable" compName="fExpandable, fExpandTransition, fWillExpand" />
+    <setup title="Expandable" compName="fExpandable, fExpandTransition, fWillExpand" />
 
-    <section-header label="Example" />
     <f-expandable v-if="activeExample === 'normal'" :title="`Click to ${expanded ? 'collapse' : 'expand'}`" v-model="expanded">
       <h1>I am content</h1>
     </f-expandable>
@@ -140,10 +139,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { ShowToken, VariantHeading, SectionHeader } from '../util.js'
 import { fExpandable, fWillExpand, fExpandTransition, fToggle } from '#components'
-import Setup from '../Setup.vue'
-import DocsTable from '../DocsTable.vue'
 
 const log = () => window.alert('expanded')
 const exampleToggles = [

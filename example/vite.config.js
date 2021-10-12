@@ -14,7 +14,14 @@ const alias = Object.entries(pkg.imports).reduce((acc, [k, v]) => {
  * @type {import('vite').UserConfig}
  */
 export default {
-  plugins: [vue()],
+  plugins: [vue({
+    template: {
+      compilerOptions: {
+        // treat all tags with a dash as custom elements
+        isCustomElement: tag => tag.includes('f-docs-')
+      }
+    }
+  })],
   server: { host: "0.0.0.0", port: 3003 },
   resolve: { alias }
 };

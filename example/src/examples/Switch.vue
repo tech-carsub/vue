@@ -1,8 +1,6 @@
 <template>
   <div>
-    <setup title="Switch" pkg-name="@fabric-ds/vue-switch" compName="fSwitch" />
-
-    <section-header label="Example" />
+    <setup title="Switch" compName="fSwitch" />
 
     <div class="mt-16 space-y-32">
       <f-field label="a switch" #default="{ labelFor }">
@@ -20,21 +18,14 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 import { fField, fSwitch } from '#components'
-import Setup from '../Setup.vue'
 
 const token = `<f-field label="a switch" #default="{ labelFor }">
   <f-switch v-model="model" :id="labelFor" />
 </f-field>
 `
 
-export default {
-  components: { fField, fSwitch, Setup },
-  setup: () => ({
-    token,
-    model: ref(false)
-  })
-}
+const model = ref(false)
 </script>

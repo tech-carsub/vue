@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Toast" pkg-name="@fabric-ds/vue-toast" compName="fToast, makeToast, useToaster" />
+    <setup title="Toast" compName="fToast, makeToast, useToaster" />
     <p class="border-l-8 bg-red-50 border-red-700 p-16 rounded-4 my-16 text-12">The toaster is a singleton that should be installed app-wide as shown above, <code>fToast</code> should only be imported manually for broadcast messages.</p>
 
     <section-header label="Example" />
@@ -104,7 +104,6 @@
 import { ref, computed } from 'vue'
 import { fToggle } from '@fabric-ds/vue-forms'
 import { fToast, makeToast } from '@fabric-ds/vue-toast'
-import Setup from '../Setup.vue'
 
 const sleep = n => new Promise(r => setTimeout(r, n))
 function getRandomInt(min, max) {
@@ -113,40 +112,33 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export default {
-  components: { Setup, fToast, fToggle },
-  setup() {
-    const activeExample = ref('positive')
-    const exampleToasts = [
-      { label: 'Positive', value: 'positive' },
-      { label: 'Warning', value: 'warning' },
-      { label: 'Negative', value: 'negative' },
-      { label: 'Neutral', value: 'neutral' }
-    ]
-    const toastOptions = computed(() => {
-      switch (activeExample.value) {
-        case 'positive': return { positive: true }
-        case 'negative': return { negative: true }
-        case 'warning': return { warning: true }
-        case 'neutral': return { neutral: true }
-      }
-    })
-    const make = async () => {
-      const duration = getRandomInt(2000, 4000)
-      const toast = makeToast({ text: `Hi! I'm an example toast!`, duration, ...toastOptions.value })
-      if (duration > 3750) {
-        await sleep(duration / 2)
-        toast.value.positive = false
-        toast.value.warning = false
-        toast.value.neutral = false
-        toast.value.negative = true
-        toast.value.text = `Whoa, things went bad. I'm outta here!`
-      }
-    }
-    const token = `<f-toast positive text="This is a toast" />`
-    const makeToastToken = `makeToast({ positive: true, text: 'Hello' })`
-
-    return { make, activeExample, exampleToasts, toastOptions, token, makeToastToken }
+const activeExample = ref('positive')
+const exampleToasts = [
+  { label: 'Positive', value: 'positive' },
+  { label: 'Warning', value: 'warning' },
+  { label: 'Negative', value: 'negative' },
+  { label: 'Neutral', value: 'neutral' }
+]
+const toastOptions = computed(() => {
+  switch (activeExample.value) {
+    case 'positive': return { positive: true }
+    case 'negative': return { negative: true }
+    case 'warning': return { warning: true }
+    case 'neutral': return { neutral: true }
+  }
+})
+const make = async () => {
+  const duration = getRandomInt(2000, 4000)
+  const toast = makeToast({ text: `Hi! I'm an example toast!`, duration, ...toastOptions.value })
+  if (duration > 3750) {
+    await sleep(duration / 2)
+    toast.value.positive = false
+    toast.value.warning = false
+    toast.value.neutral = false
+    toast.value.negative = true
+    toast.value.text = `Whoa, things went bad. I'm outta here!`
   }
 }
+const token = `<f-toast positive text="This is a toast" />`
+const makeToastToken = `makeToast({ positive: true, text: 'Hello' })`
 </script>

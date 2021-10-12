@@ -1,11 +1,9 @@
 <template>
   <div>
-    <setup title="Slider" pkg-name="@fabric-ds/vue-slider" compName="fSlider" />
-
-    <section-header label="Example" />
+    <setup title="Slider" compName="fSlider" />
 
     <p class="text-right text-12">Value: {{ largeNumber }}</p>
-    
+
     <div class="space-y-32">
       <f-slider v-model="largeNumber" :min="1000" :max="10_000_000" :step="1000" label="a large number slider" />
       <f-slider disabled v-model="largeNumber" :min="1000" :max="10_000_000" :step="1000" label="a large number slider" />
@@ -52,10 +50,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { ShowToken, SectionHeader } from '../util.js'
 import { fSlider } from '#components'
-import Setup from '../Setup.vue'
-import DocsTable from '../DocsTable.vue'
 
 const largeNumber = ref(3_000_000)
 const token = `<f-slider v-model="largeNumber" :min="1000" :max="10_000_000" :step="1000" />`

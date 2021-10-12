@@ -1,8 +1,6 @@
 <template>
   <div>
-    <setup title="Box" pkg-name="@fabric-ds/vue-box" compName="fBox" />
-
-    <section-header label="Example" />
+    <setup title="Box" compName="fBox" />
 
     <f-box v-if="activeExample === 'bleed'" bleed class="bg-aqua-300">
       <h3 class="h1">I am some content</h3>
@@ -87,10 +85,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { ShowToken, VariantHeading, SectionHeader } from '../util.js'
 import { fBox, fClickable, fToggle } from '#components'
-import Setup from '../Setup.vue'
-import DocsTable from '../DocsTable.vue'
 
 const exampleToggles = [
   { label: 'Bleed', value: 'bleed' },

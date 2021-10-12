@@ -1,8 +1,6 @@
 <template>
   <div>
-    <setup title="Forms" pkg-name="@fabric-ds/vue-forms" compName="fInput, fSelect, fToggle, fForm, fField, fSuffix" />
-
-    <section-header label="Example" />
+    <setup title="Forms" compName="fInput, fSelect, fToggle, fForm, fField, fSuffix" />
 
     <section v-if="activeExample === 'input'">
       <f-input class="mb-16" #suffix="{ inputElement }" label="A required input with a clear button" hint="A hint" required v-model="inputModel">
@@ -72,7 +70,6 @@
 import { ref, h } from 'vue'
 import { PropsNotice } from '../util.js'
 import { fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix, fButton } from '#components'
-import Setup from '../Setup.vue'
 import FormToggleDocs from './FormToggleDocs.vue'
 import FormFieldDocs from './FormFieldDocs.vue'
 import FormInputDocs from './FormInputDocs.vue'

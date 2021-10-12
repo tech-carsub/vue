@@ -1,8 +1,6 @@
 <template>
   <div>
-    <setup title="Card" pkg-name="@fabric-ds/vue-card" compName="fCard" />
-
-    <section-header label="Example" />
+    <setup title="Card" compName="fCard" />
 
     <div class="space-y-32 md:space-y-0 md:grid grid-cols-3 gap-32">
       <f-card @click="selected = !selected" :selected="selected">
@@ -60,17 +58,11 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
-import Setup from '../Setup.vue'
 import { fCard, fToggle } from '#components'
 
-export default {
-  components: { Setup, fCard, fToggle },
-  setup: () => ({
-    selected: ref(false),
-    checkModel: ref(false),
-    radioModel: ref(''),
-  })
-}
+const selected = ref(false)
+const checkModel = ref(false)
+const radioModel = ref('')
 </script>

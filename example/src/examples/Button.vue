@@ -2,8 +2,6 @@
   <div>
     <setup title="Button" comp-name="fButton" />
 
-    <section-header label="Example" />
-
     <div class="space-x-16">
       <f-button primary>Click me!</f-button>
       <f-button secondary>Click me!</f-button>
@@ -95,9 +93,6 @@
 
 <script setup>
 import { fButton } from '#components'
-import { ShowToken, SectionHeader } from '../util.js'
-import Setup from '../Setup.vue'
-import DocsTable from '../DocsTable.vue'
 
 const token = `<f-button primary>Click me!</f-button>`
 </script>

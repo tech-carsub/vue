@@ -1,8 +1,6 @@
 <template>
   <div>
-    <setup title="Modal" pkg-name="@fabric-ds/vue-modal" compName="fModal" />
-
-    <section-header label="Example" />
+    <setup title="Modal" compName="fModal" />
 
     <button class="button button--utility" @click="model = true">Show modal</button>
 
@@ -168,7 +166,6 @@
 <script setup>
 import { ref, reactive, computed } from 'vue'
 import { fModal } from '#components'
-import Setup from '../Setup.vue'
 
 const heightToggle = ref(false)
 const demoStyles = computed(() => ({

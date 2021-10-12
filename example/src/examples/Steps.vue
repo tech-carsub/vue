@@ -1,8 +1,6 @@
 <template>
   <div>
-    <setup title="Steps" pkg-name="@fabric-ds/vue-steps" compName="fSteps, fStep" />
-
-    <section-header label="Example" />
+    <setup title="Steps" compName="fSteps, fStep" />
 
     <f-steps class="mb-32" :right="right" :horizontal="horizontal">
       <f-step :active="current === 1" :complete="current > 1">
@@ -61,9 +59,6 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { fStep, fSteps } from '#components'
-import { ShowToken, SectionHeader } from '../util.js'
-import Setup from '../Setup.vue'
-import DocsTable from '../DocsTable.vue'
 
 const current = ref(1)
 const horizontal = ref(false)

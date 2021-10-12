@@ -3,7 +3,7 @@ import App from './App.vue';
 import Cleave from 'cleave-lite';
 import { createRouter, createWebHistory } from 'vue-router';
 // import ToastInstaller from "@fabric-ds/vue-toast";
-import { ShowToken, VariantHeading, SectionHeader } from './util.js';
+import { ShowToken, VariantHeading, SectionHeader, ExampleHeader } from './util.js';
 import DocsTable from './DocsTable.vue';
 import Setup from './Setup.vue';
 
@@ -53,6 +53,7 @@ createApp(App)
   .component('show-token', ShowToken)
   .component('variant-heading', VariantHeading)
   .component('section-header', SectionHeader)
+  .component('example-header', ExampleHeader)
   .component('docs-table', DocsTable)
   .component('setup', Setup)
   .use(router)

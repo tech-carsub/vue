@@ -13,17 +13,11 @@
     <p class="bg-gray-100 p-16 rounded-4 text-12">
       <code>import { {{ compName }} } from '@fabric-ds/vue'</code>
     </p>
+
+    <example-header :label="title" />
   </section>
 </template>
 
-<script>
-import { SectionHeader } from './util';
-
-export default {
-  components: { SectionHeader },
-  props: {
-    title: String,
-    compName: String,
-  },
-};
+<script setup>
+defineProps({ title: String, compName: String, })
 </script>

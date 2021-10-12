@@ -26,11 +26,3 @@
     <p class="border-l-8 bg-green-50 border-green-700 p-16 rounded-4 my-16 text-12">The naming scheme for exports is <code>Icon+NAME+SIZE</code> - e.g. above this would be the 32px "wifi" icon.</p>
   </div>
 </template>
-
-<script>
-import Setup from '../Setup.vue'
-
-export default {
-  components: { Setup }
-}
-</script>
