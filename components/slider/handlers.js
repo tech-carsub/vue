@@ -23,7 +23,9 @@ export const createHandlers = ({ props, emit, step, position, v, sliderPressed, 
       position.value = props.max
     } else {
       const direction = key === validKeys.pageup ? 1 : -1
-      position.value = clampedChange(v.value + (direction * step.value * 2))
+      const minStepMultiplier = 2
+      const maxStepMultiplier = 50
+      position.value = clampedChange(v.value + (direction * step.value * Math.max(minStepMultiplier, Math.min(maxStepMultiplier, Math.ceil((props.max - props.min) / 10 / step.value)))))
     }
   }
   function handleFocus(e) {

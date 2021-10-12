@@ -83,7 +83,7 @@ export default {
       'aria-valuemin': props.min,
       'aria-valuemax': props.max,
       'aria-valuenow': v.value,
-      'aria-valuetext': v.value
+      'aria-valuetext': props['aria-valuetext']
     }))
 
     const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleMouseUp, handleClick } = createHandlers({ props, emit, step, position, v, sliderPressed, thumb, dimensions })
