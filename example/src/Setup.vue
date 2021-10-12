@@ -14,7 +14,7 @@
       <code>import { {{ compName }} } from '@fabric-ds/vue'</code>
     </p>
 
-    <example-header label="Example" />
+    <example-header label="Example" :name="title" />
   </section>
 </template>
 
