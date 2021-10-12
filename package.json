@@ -23,7 +23,7 @@
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@fabric-ds/component-classes": "^0.0.31",
+    "@fabric-ds/component-classes": "^0.0.32",
     "@finn-no/dom-focus-lock-fixed": "^1.0.6",
     "create-v-model": "^2.1.2",
     "element-collapse": "^0.9.1",
