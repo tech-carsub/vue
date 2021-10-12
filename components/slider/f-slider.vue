@@ -41,7 +41,7 @@ export default {
     disabled: Boolean,
     ...modelProps()
   },
-  setup(props, { emit }) {
+  setup(props, { emit, attrs }) {
     const sliderLine = ref(null)
     const thumb = ref(null)
     const { dimensions } = useDimensions(sliderLine)
@@ -83,7 +83,7 @@ export default {
       'aria-valuemin': props.min,
       'aria-valuemax': props.max,
       'aria-valuenow': v.value,
-      'aria-valuetext': props['aria-valuetext']
+      'aria-valuetext': attrs['aria-valuetext']
     }))
 
     const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleMouseUp, handleClick } = createHandlers({ props, emit, step, position, v, sliderPressed, thumb, dimensions })
