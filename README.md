@@ -9,8 +9,8 @@
 ### Version package
 
 ```sh
-# yarn version <major|minor|patch>
-yarn version patch
+# npm version <major|minor|patch>
+npm version patch
 ```
 
 ### Publish (NPM and Eik)
