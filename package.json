@@ -57,7 +57,7 @@
   ],
   "eik": {
     "server": "https://assets.finn.no",
-    "files": "./dist",
+    "files": "./dist/eik",
     "import-map": "https://assets.finn.no/map/finn/v2"
   }
 }
