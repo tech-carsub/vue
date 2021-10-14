@@ -8,13 +8,9 @@
 
 ### Version package
 
+Versioning will also publish to NPM and Eik
+
 ```sh
 # npm version <major|minor|patch>
 npm version patch
-```
-
-### Publish (NPM and Eik)
-
-```sh
-yarn pack
 ```
