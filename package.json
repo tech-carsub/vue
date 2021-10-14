@@ -23,6 +23,7 @@
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@eik/rollup-plugin": "^4.0.8",
     "@fabric-ds/component-classes": "^0.0.32",
     "@finn-no/dom-focus-lock-fixed": "^1.0.6",
     "create-v-model": "^2.1.2",
@@ -53,5 +54,10 @@
   },
   "files": [
     "dist/"
-  ]
+  ],
+  "eik": {
+    "server": "https://assets.finn.no",
+    "files": "./dist",
+    "import-map": "https://assets.finn.no/map/finn/v2"
+  }
 }
