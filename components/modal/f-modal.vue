@@ -5,15 +5,15 @@
         <div v-if="showContent" :class="c.modal" tabindex="-1" aria-modal="true" aria-labelledby="f-modal-title" role="dialog" ref="modalEl">
           <div :class="[c.title, headerClasses]">
             <transition-group name="f-modal-title">
-              <button v-if="left" aria-label="Tilbake" @click="$emit('left')" :class="[c.transitionTitle, c.titleButton, c.titleButtonLeft, 'justify-self-start']" key="left" v-bind="left">
+              <button v-if="left" aria-label="Tilbake" @click="$emit('left')" :class="titleLeftClasses" key="left" v-bind="left">
                 <svg v-if="!$slots.left" aria-hidden="true" :class="[c.titleButtonIcon, 'transform rotate-90']" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="nonzero" d="M8 2.25a.75.75 0 01.743.648L8.75 3v8.189l3.72-3.72a.75.75 0 011.133.977l-.073.084-5 5a.747.747 0 01-.374.204l-.104.014h-.104a.747.747 0 01-.478-.218l-5-5a.75.75 0 01.976-1.133l.084.073 3.72 3.719V3A.75.75 0 018 2.25z"></path></svg>
                 <slot name="left" />
               </button>
-              <div :class="{ [c.transitionTitle]: true, 'justify-self-center': left, 'col-span-2': !left }" key="title" v-bind="titleAttrs">
+              <div :class="titleCenterClasses" key="title" v-bind="titleAttrs">
                 <p id="f-modal-title" :class="c.titleText" v-if="title">{{ title }}</p>
                 <slot name="title" />
               </div>
-              <button v-if="right" aria-label="Lukk" @click="$emit('right')" :class="[c.transitionTitle, c.titleButton, c.titleButtonRight, 'justify-self-end']" key="right" v-bind="right">
+              <button v-if="right" aria-label="Lukk" @click="$emit('right')" :class="titleRightClasses" key="right" v-bind="right">
                 <svg v-if="!$slots.right" aria-hidden="true" :class="c.titleButtonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 12l6 6-6-6-6 6 6-6zm0 0L6 6l6 6 6-6-6 6z"/></svg>
                 <slot name="right" />
               </button>
@@ -32,11 +32,13 @@
 </template>
 
 <script>
-import { ref, watch, nextTick, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, nextTick, onBeforeUnmount } from 'vue'
 import { modal as c } from '@fabric-ds/component-classes'
 import focusLock from '@finn-no/dom-focus-lock-fixed'
 import { id } from '#util'
 import { setup as setupScrollLock, teardown as teardownScrollLock } from 'scroll-doctor'
+
+const transitions = 'transition-gpu transition-transform'
 
 export default {
   name: 'fModal',
@@ -56,10 +58,22 @@ export default {
     const backdropEl = ref(null)
     const showModal = ref(false)
     const showContent = ref(false)
+    const titleShouldTransition = ref(false)
     const emitDismiss = () => emit('dismiss')
     const emitIfEscape = e => {
       if (e.key === 'Escape') emitDismiss()
     }
+    const titleLeftClasses = computed(() => ({ [transitions]: true, [titleShouldTransition.value ? 'duration-300' : 'duration-1']: true, [c.titleButton]: true, [c.titleButtonLeft]: true, ['justify-self-start']: true }))
+    const titleCenterClasses = computed(() => ({ [transitions]: true, [titleShouldTransition.value ? 'duration-300' : 'duration-0']: true, 'justify-self-center': props.left, 'col-span-2': !props.left }))
+    const titleRightClasses = computed(() => ({ [transitions]: true, [titleShouldTransition.value ? 'duration-300' : 'duration-0']: true, [c.titleButton]: true, [c.titleButtonRight]: true, ['justify-self-end']: true }))
+
+    // when the content area reflows the title area transitions because of v-move in the transition-group
+    // this limits the effects
+    watch(() => ([props.left, props.right, props.title]), async () => {
+      titleShouldTransition.value = true
+      await nextTick()
+      titleShouldTransition.value = false
+    })
 
     // vue-ism
     // because we have nested transitions we need to fire this in order
@@ -113,7 +127,10 @@ export default {
       emitDismiss,
       contentEl,
       showModal,
-      showContent
+      showContent,
+      titleLeftClasses,
+      titleCenterClasses,
+      titleRightClasses
     }
   }
 }
