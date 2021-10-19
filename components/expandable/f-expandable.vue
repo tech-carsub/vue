@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { absentProp } from '#util'
 import expandTransition from './f-expand-transition.js'
@@ -49,7 +49,12 @@ export default {
     const expanded = (props.modelValue === absentProp) ? ref(false) : createModel({ props, emit })
     const contentComponent = props.animated ? expandTransition : 'div'
     // fExpandTransition emits its own events and we just bubble them, but for a normal DOM element we need to create them
-    if (!props.animated) watch(expanded, (isExpanded) => emit(isExpanded ? 'expand' : 'collapse'))
+    if (!props.animated) {
+      watch(expanded, async (isExpanded) => {
+        await nextTick()
+        emit(isExpanded ? 'expand' : 'collapse')
+      })
+    }
 
     const hasTitle = computed(() => props.title || slots.title)
 
