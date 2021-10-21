@@ -1,6 +1,6 @@
 <template>
   <div>
-    <setup title="Forms" compName="fInput, fSelect, fToggle, fForm, fField, fSuffix" />
+    <setup title="Form" compName="fInput, fSelect, fToggle, fForm, fField, fSuffix" />
 
     <section v-if="activeExample === 'input'">
       <f-input class="mb-16" #suffix="{ inputElement }" label="A required input with a clear button" hint="A hint" required v-model="inputModel">
