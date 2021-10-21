@@ -15,7 +15,7 @@ import Switch from './examples/Switch.vue';
 // import Toast from "./examples/Toast.vue";
 import Modal from './examples/Modal.vue';
 import Breadcrumbs from './examples/Breadcrumbs.vue';
-import Form from './examples/Form.vue';
+import Forms from './examples/Forms.vue';
 import Box from './examples/Box.vue';
 import Card from './examples/Card.vue';
 import Tabs from './examples/Tabs.vue';
@@ -32,7 +32,7 @@ const routes = [
   // { path: "/toast", component: Toast, name: 'toast' },
   { path: '/modal', component: Modal, name: 'modal' },
   { path: '/breadcrumbs', component: Breadcrumbs, name: 'breadcrumbs' },
-  { path: '/forms', component: Form, name: 'forms' },
+  { path: '/forms', component: Forms, name: 'forms' },
   { path: '/box', component: Box, name: 'box' },
   { path: '/card', component: Card, name: 'card' },
   { path: '/tabs', component: Tabs, name: 'tabs' },
