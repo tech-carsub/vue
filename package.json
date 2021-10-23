@@ -1,6 +1,6 @@
 {
   "name": "@fabric-ds/vue",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "Fabric components for Vue 3",
   "type": "module",
   "exports": "./dist/fabric-vue.js",
