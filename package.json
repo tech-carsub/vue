@@ -19,7 +19,8 @@
     "site:cloud": "cd example/dist && cp index.html 200.html && cp index.html 404.html && cp ../CNAME .",
     "preversion": "npx @eik/cli login && npm run build",
     "version": "npm publish",
-    "postversion": "npm run publish:eik && git push --follow-tags"
+    "postversion": "npm run publish:eik && git push --follow-tags",
+    "preinstall": "npx -y only-allow yarn"
   },
   "keywords": [],
   "author": "Dave Honneffer <pearofducks@gmail.com>",
