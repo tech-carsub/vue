@@ -11,12 +11,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: l6
+          cache: 'yarn'
       - name: Install Dependencies
-        run: |
-          yarn
+        run: yarn
       - name: Build Docs
-        run: |
-          yarn site
+        run: yarn site
       - name: Deploy
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
