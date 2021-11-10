@@ -1,0 +1,21 @@
+<template>
+  <div class="input-toggle h-20 w-20 pointer-events-none" aria-hidden="true">
+    <f-toggle-item class="hidden" label-class="-mt-2" :type="type" v-bind="$attrs" />
+  </div>
+</template>
+
+<script>
+import { fToggleItem } from '#components'
+import { computed } from 'vue'
+
+export default {
+  components: { fToggleItem },
+  props: {
+    radio: Boolean,
+    checkbox: Boolean,
+  },
+  setup: (props) => ({
+    type: computed(() => props.radio ? 'radio' : 'checkbox')
+  })
+}
+</script>

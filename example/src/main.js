@@ -22,6 +22,7 @@ import Tabs from './examples/Tabs.vue';
 import Expandable from './examples/Expandable.vue';
 import Steps from './examples/Steps.vue';
 import Pill from './examples/Pill.vue';
+import Utilities from './examples/Utilities.vue';
 
 const routes = [
   { path: '/', component: Home, name: 'home' },
@@ -39,6 +40,7 @@ const routes = [
   { path: '/expandable', component: Expandable, name: 'expandable' },
   { path: '/steps', component: Steps, name: 'steps' },
   { path: '/pill', component: Pill, name: 'pill' },
+  { path: '/utilities', component: Utilities, name: 'utilities' },
 ];
 
 const scrollBehavior = () => ({ top: 0 });

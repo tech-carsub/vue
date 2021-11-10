@@ -37,32 +37,53 @@
     </div>
 
     <f-card :selected="checkModel" class="mt-32 w-max">
-      <div class="p-24">
-        <f-toggle class="in-card -mb-4" checkbox :toggles="[{ label: 'Check in a box', value: true }]" v-model="checkModel" />
+      <div class="p-24 flex">
+        <f-dead-toggle checkbox v-model="checkModel" :value="true" />
+        <f-clickable checkbox :value="true" v-model="checkModel" label-class="ml-12">Check in a card</f-clickable>
       </div>
     </f-card>
 
     <div class="flex gap-32 mt-32">
       <f-card :selected="radioModel === 'foo'" class="w-max">
-        <div class="p-24">
-          <f-toggle class="in-card -mb-4" radio :toggles="[{ label: 'Radio in a box - A', value: 'foo', name: 'radio-group' }]" v-model="radioModel" />
+        <div class="p-24 flex">
+          <f-dead-toggle radio v-model="radioModel" value="foo" />
+          <f-clickable radio value="foo" v-model="radioModel" label-class="ml-12" name="radio-group">Radio in a card - A</f-clickable>
         </div>
       </f-card>
       <f-card :selected="radioModel === 'bar'" class="w-max">
-        <div class="p-24">
-          <f-toggle class="in-card -mb-4" radio :toggles="[{ label: 'Radio in a box - B', value: 'bar', name: 'radio-group' }]" v-model="radioModel" />
+        <div class="p-24 flex">
+          <f-dead-toggle radio v-model="radioModel" value="bar" />
+          <f-clickable radio value="bar" v-model="radioModel" label-class="ml-12" name="radio-group">Radio in a card - B</f-clickable>
         </div>
       </f-card>
     </div>
+
+    <article class="flex gap-16 mt-32">
+    <f-card flat class="py-4 px-12 flex items-center" :selected="foo === 'foo'">
+      <f-dead-toggle radio v-model="foo" value="foo" />
+      <div class="ml-12">
+        <h4 class="mb-0"><f-clickable radio v-model="foo" value="foo">Purchase foo</f-clickable></h4>
+        <p class="mb-0 text-14">470 kr/mnd</p>
+      </div>
+    </f-card>
+    <f-card flat class="py-8 px-12 flex items-center" :selected="foo === 'bar'">
+      <f-dead-toggle radio v-model="foo" value="bar" />
+      <div class="ml-12">
+        <h4 class="mb-0"><f-clickable radio v-model="foo" value="bar">Purchase bar</f-clickable></h4>
+        <p class="mb-0 text-14">520 kr/mnd</p>
+      </div>
+    </f-card>
+    </article>
 
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { fCard, fToggle } from '#components'
+import { fCard, fToggle, fToggleItem, fDeadToggle, fClickable } from '#components'
 
 const selected = ref(false)
 const checkModel = ref(false)
 const radioModel = ref('')
+const foo = ref('')
 </script>

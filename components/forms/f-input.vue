@@ -1,6 +1,7 @@
 <template>
-  <f-field v-bind="{ ...$attrs, ...$props }" #default="{ triggerValidation }" :class="{ 'has-suffix': $slots.suffix }">
+  <f-field v-bind="{ ...$attrs, ...$props }" #default="{ triggerValidation }" :class="{ 'has-suffix': $slots.suffix, 'has-prefix': $slots.prefix }">
     <div class="input">
+      <slot name="prefix" :inputElement="inputEl" />
       <input v-if="mask" v-bind="{ ...$attrs, class: '' }" @blur="triggerValidation" ref="inputEl" :autocomplete="autocomplete" :id="id" :type="type">
       <input v-else      v-bind="{ ...$attrs, class: '' }" @blur="triggerValidation" ref="inputEl" :autocomplete="autocomplete" :id="id" :type="type" v-model="model">
       <slot name="suffix" :inputElement="inputEl" />
@@ -9,7 +10,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { createModel } from 'create-v-model'
 import { setupMask } from './f-input-mask.js'
 import { default as fField, fieldProps } from './f-field.vue'

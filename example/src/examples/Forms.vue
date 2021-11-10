@@ -7,6 +7,10 @@
         <f-suffix clear @click="handleClear(inputElement)" />
       </f-input>
 
+      <f-input #prefix v-model="prefixModel" label="I have a prefix" class="mb-16">
+        <f-affix prefix label="+47" />
+      </f-input>
+
       <f-input v-model.number="numericModel" optional number type="tel" :mask="moneyMask" label="A masked (money) input" :hint="`Model value: <code>${numericModel}</code>`" />
     </section>
 
@@ -69,7 +73,7 @@
 <script setup>
 import { ref, h } from 'vue'
 import { PropsNotice } from '../util.js'
-import { fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix, fButton } from '#components'
+import { fInput, fSelect, fTextarea, fToggle, fForm, fField, fSuffix, fAffix, fButton } from '#components'
 import FormToggleDocs from './FormToggleDocs.vue'
 import FormFieldDocs from './FormFieldDocs.vue'
 import FormInputDocs from './FormInputDocs.vue'
@@ -103,6 +107,7 @@ const handleClear = (el) => {
 }
 const moneyMask = { numeral: true, numeralPositiveOnly: true, numeralIntegerScale: 8, delimiter: ' ' }
 const inputModel = ref('I am an input element')
+const prefixModel = ref('')
 const numericModel = ref('')
 const textareaModel = ref('')
 const selectModel = ref('')
