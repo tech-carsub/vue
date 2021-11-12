@@ -1,5 +1,5 @@
 <template>
-  <component :is="href ? 'a' : 'button'" :href="href" :type="href ? undefined : ($attrs.type || 'button')" :class="buttonClass">
+  <component :is="href ? 'a' : 'button'" :href="href" :class="buttonClass" v-bind="saneDefaults">
     <span v-if="!$slots.default">{{ label }}</span>
     <slot />
     <span v-if="loading" role="progressbar" aria-valuenow="0" aria-valuetext="Laster..." class="sr-only" />
@@ -24,7 +24,7 @@ export default {
     href: String,
     label: String
   },
-  setup: (props) => ({
+  setup: (props, { attrs }) => ({
     buttonClass: computed(() => ({
       'button': true,
       // primary buttons
@@ -40,6 +40,10 @@ export default {
       'button--link': props.link,
       'button--pill': props.pill,
       'button--in-progress': props.loading,
+    })),
+    saneDefaults: computed(() => ({
+      type: props.href ? undefined : (attrs.type || 'button'),
+      rel: attrs.target === '_blank' ? (attrs.rel || 'noopener') : undefined
     }))
   })
 }
