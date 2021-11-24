@@ -19,7 +19,7 @@
               </button>
             </transition-group>
           </div>
-          <div :class="c.content" v-if="$slots.default" ref="contentEl" :id="contentId">
+          <div :class="[c.content, contentClasses]" v-if="$slots.default" ref="contentEl" :id="contentId">
             <slot />
           </div>
           <div :class="c.footer" v-if="$slots.footer">
@@ -48,6 +48,7 @@ export default {
     title: String,
     titleAttrs: Object,
     headerClasses: [String, Object],
+    contentClasses: [String, Object],
     modelValue: Boolean,
     contentId: id
   },

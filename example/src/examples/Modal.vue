@@ -78,6 +78,14 @@
         <td></td>
       </tr>
       <tr>
+        <td>contentClasses</td>
+        <td>
+          <div>string | object</div>
+          <div class="annotation">Classes here will be set on the wrapper for the content</div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
         <td>contentId</td>
         <td>
           <div>string</div>
@@ -164,7 +172,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { fModal } from '#components'
 
 const heightToggle = ref(false)
