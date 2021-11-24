@@ -13,6 +13,7 @@ import { fToggleItem } from '#components'
 import { computed } from 'vue'
 
 export default {
+  name: 'fClickable',
   components: { fToggleItem },
   props: {
     href: String,

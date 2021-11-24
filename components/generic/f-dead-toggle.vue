@@ -9,6 +9,7 @@ import { fToggleItem } from '#components'
 import { computed } from 'vue'
 
 export default {
+  name: 'fDeadToggle',
   components: { fToggleItem },
   props: {
     radio: Boolean,
