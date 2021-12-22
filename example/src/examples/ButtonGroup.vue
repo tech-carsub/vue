@@ -32,6 +32,17 @@
         <f-clickable label radio v-model="radioModel" value="bar">Bar</f-clickable>
       </f-button-group-item>
     </f-button-group>
+
+    <div class="mv-16 pv-16 h-16" />
+
+    <f-button-group outlined vertical>
+      <f-button-group-item :selected="radioModel === 'foo'">
+        <f-clickable label radio v-model="radioModel" value="foo">Foo</f-clickable>
+      </f-button-group-item>
+      <f-button-group-item :selected="radioModel === 'bar'">
+        <f-clickable label radio v-model="radioModel" value="bar">Bar</f-clickable>
+      </f-button-group-item>
+    </f-button-group>
   </div>
 </template>
 
