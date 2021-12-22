@@ -8,6 +8,7 @@
 import { inject, computed } from 'vue'
 
 export default {
+  name: 'fButtonGroupItem',
   props: {
     selected: Boolean
   },

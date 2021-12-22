@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { fToggleItem } from '#components'
+import fToggleItem from './f-toggle-item.vue'
 import { computed } from 'vue'
 
 const clickableClasses = 'absolute inset-0 h-full w-full appearance-none cursor-pointer'

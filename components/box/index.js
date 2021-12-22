@@ -1,5 +1,6 @@
-import { fClickable } from '#components'
 import fBox from './f-box.vue'
+import { fClickable } from '#generics'
+import { installer } from '#util'
 
-export const Box = { install: (app) => [fBox, fClickable].forEach(c => app.component(c.name, c)) }
+export const Box = { install: installer([fBox, fClickable]) }
 export { fBox }

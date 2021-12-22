@@ -16,7 +16,7 @@
 <script>
 import { computed } from 'vue'
 import { default as fField, fieldProps } from './f-field.vue'
-import fToggleItem from './f-toggle-item.vue'
+import { fToggleItem } from '#generics'
 import { createModel } from 'create-v-model'
 
 const hasLabelAndValue = e => ('value' in e) && ('label' in e)

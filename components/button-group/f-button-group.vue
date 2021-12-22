@@ -8,6 +8,7 @@
 import { provide, computed, toRef } from 'vue'
 
 export default {
+  name: 'fButtonGroup',
   props: {
     outlined: Boolean,
     raised: Boolean

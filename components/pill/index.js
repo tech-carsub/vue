@@ -1,4 +1,5 @@
 import fPill from './f-pill.vue'
+import { installer } from '#util'
 
-export const Pill = { install: (app) => app.component(fPill.name, fPill) }
+export const Pill = { install: installer([fPill]) }
 export { fPill }

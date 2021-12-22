@@ -2,7 +2,6 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import Cleave from 'cleave-lite';
 import { createRouter, createWebHistory } from 'vue-router';
-// import ToastInstaller from "@fabric-ds/vue-toast";
 import { ShowToken, VariantHeading, SectionHeader, ExampleHeader } from './util.js';
 import DocsTable from './DocsTable.vue';
 import Setup from './Setup.vue';
@@ -13,7 +12,6 @@ import Button from './examples/Button.vue';
 import ButtonGroup from './examples/ButtonGroup.vue';
 import Slider from './examples/Slider.vue';
 import Switch from './examples/Switch.vue';
-// import Toast from "./examples/Toast.vue";
 import Modal from './examples/Modal.vue';
 import Breadcrumbs from './examples/Breadcrumbs.vue';
 import Forms from './examples/Forms.vue';
@@ -32,7 +30,6 @@ const routes = [
   { path: '/button-group', component: ButtonGroup, name: 'button-group' },
   { path: '/slider', component: Slider, name: 'slider' },
   { path: '/switch', component: Switch, name: 'switch' },
-  // { path: "/toast", component: Toast, name: 'toast' },
   { path: '/modal', component: Modal, name: 'modal' },
   { path: '/breadcrumbs', component: Breadcrumbs, name: 'breadcrumbs' },
   { path: '/forms', component: Forms, name: 'forms' },
@@ -61,5 +58,4 @@ createApp(App)
   .component('docs-table', DocsTable)
   .component('setup', Setup)
   .use(router)
-  // .use(ToastInstaller)
   .mount('#app');

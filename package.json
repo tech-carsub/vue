@@ -6,7 +6,8 @@
   "exports": "./dist/fabric-vue.js",
   "imports": {
     "#util": "./components/util/index.js",
-    "#components": "./index.js"
+    "#components": "./index.js",
+    "#generics": "./components/generic/index.js"
   },
   "scripts": {
     "dev": "cd example && vite",
