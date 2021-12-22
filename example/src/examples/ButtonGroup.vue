@@ -16,7 +16,7 @@
       </f-button-group-item>
     </f-button-group>
 
-    <div class="mt-32 mb-48 flex gap-8">
+    <div class="pt-32 mb-48 flex gap-8" :class="{ '-mt-2': toggleOutline }">
       <f-button utility @click="toggleOutline = !toggleOutline">{{ toggleOutline ? 'Remove' : 'Add' }} outline</f-button>
       <f-button utility @click="toggleRaised = !toggleRaised">{{ toggleRaised ? 'Remove' : 'Add' }} shadow</f-button>
       <f-button utility @click="toggleSelected = !toggleSelected">{{ toggleSelected ? 'Remove' : 'Add' }} selected-UI</f-button>
