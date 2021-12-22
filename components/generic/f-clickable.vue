@@ -2,7 +2,7 @@
   <f-toggle-item v-if="radio || checkbox" class="focus-ring focus-ring-inset" :class="clickableClasses" :type="type" :label-class="{ [labelClasses]: label }" v-bind="$attrs">
     <slot />
   </f-toggle-item>
-  <component v-else :is="href ? 'a' : 'button'" class="focus-ring" :class="{ [labelClasses]: label }" :href="href" :type="href ? undefined : ($attrs.type || 'button')">
+  <component v-else :is="href ? 'a' : 'button'" class="focus-ring focus-ring-inset" :class="{ [labelClasses]: label }" :href="href" :type="href ? undefined : ($attrs.type || 'button')">
     <span :class="clickableClasses" aria-hidden="true" />
     <slot />
   </component>
