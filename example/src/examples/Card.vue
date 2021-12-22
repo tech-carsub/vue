@@ -3,32 +3,34 @@
     <setup title="Card" compName="fCard" />
 
     <div class="space-y-32 md:space-y-0 md:grid grid-cols-3 gap-32">
-      <f-card @click="selected = !selected" :selected="selected">
+      <f-card :selected="selected">
         <img class="h-128 w-full object-cover" src="https://source.unsplash.com/random/400x400" />
         <p class="absolute top-12 left-12 bg-aqua-200 text-aqua-900 p-4 rounded-4 text-12">Ukens bolig</p>
         <div class="p-16">
           <p class="text-12 text-gray-300">DNB Eiendom</p>
-          <p>Stilfull og gjennomgående 3-roms m/balkong. Oppusset i 2019. Inkl. bl.a. vv/fyring.</p>
+          <p><f-clickable @click="selected = !selected" class="text-left">Stilfull og gjennomgående 3-roms m/balkong. Oppusset i 2019. Inkl. bl.a. vv/fyring.</f-clickable></p>
           <p class="text-14 text-gray-400 mb-4">Bøgata 25C, 0655 Oslo</p>
           <p class="font-bold my-8">52 m<span style="font-size: 10px; vertical-align: super;">2</span> Totalpris: 4 869 039 kr</p>
           <p class="text-14 text-gray-400 mb-0">Eier (Selveier) <span class="text-gray-200">•</span> Leilighet <span class="text-gray-200">•</span> 2 soverom</p>
         </div>
       </f-card>
-      <f-card @click="selected = !selected" :selected="selected">
-        <img class="h-128 w-full object-cover" src="https://source.unsplash.com/random/402x402" />
+      <f-card :selected="selected">
+        <img class="h-128 w-full object-cover" src="https://source.unsplash.com/random/400x402" />
+        <p class="absolute top-12 left-12 bg-aqua-200 text-aqua-900 p-4 rounded-4 text-12">Ukens bolig</p>
         <div class="p-16">
           <p class="text-12 text-gray-300">DNB Eiendom</p>
-          <p>Stilfull og gjennomgående 3-roms m/balkong. Oppusset i 2019. Inkl. bl.a. vv/fyring.</p>
+          <p><f-clickable @click="selected = !selected" class="text-left">Stilfull og gjennomgående 3-roms m/balkong. Oppusset i 2019. Inkl. bl.a. vv/fyring.</f-clickable></p>
           <p class="text-14 text-gray-400 mb-4">Bøgata 25C, 0655 Oslo</p>
           <p class="font-bold my-8">52 m<span style="font-size: 10px; vertical-align: super;">2</span> Totalpris: 4 869 039 kr</p>
           <p class="text-14 text-gray-400 mb-0">Eier (Selveier) <span class="text-gray-200">•</span> Leilighet <span class="text-gray-200">•</span> 2 soverom</p>
         </div>
       </f-card>
-      <f-card @click="selected = !selected" :selected="selected">
-        <img class="h-128 w-full object-cover" src="https://source.unsplash.com/random/404x404" />
+      <f-card :selected="selected">
+        <img class="h-128 w-full object-cover" src="https://source.unsplash.com/random/400x404" />
+        <p class="absolute top-12 left-12 bg-aqua-200 text-aqua-900 p-4 rounded-4 text-12">Ukens bolig</p>
         <div class="p-16">
           <p class="text-12 text-gray-300">DNB Eiendom</p>
-          <p>Stilfull og gjennomgående 3-roms m/balkong. Oppusset i 2019. Inkl. bl.a. vv/fyring.</p>
+          <p><f-clickable @click="selected = !selected" class="text-left">Stilfull og gjennomgående 3-roms m/balkong. Oppusset i 2019. Inkl. bl.a. vv/fyring.</f-clickable></p>
           <p class="text-14 text-gray-400 mb-4">Bøgata 25C, 0655 Oslo</p>
           <p class="font-bold my-8">52 m<span style="font-size: 10px; vertical-align: super;">2</span> Totalpris: 4 869 039 kr</p>
           <p class="text-14 text-gray-400 mb-0">Eier (Selveier) <span class="text-gray-200">•</span> Leilighet <span class="text-gray-200">•</span> 2 soverom</p>
@@ -80,7 +82,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { fCard, fToggle, fToggleItem, fDeadToggle, fClickable } from '#components'
+import { fCard, fDeadToggle, fClickable } from '#components'
 
 const selected = ref(false)
 const checkModel = ref(false)

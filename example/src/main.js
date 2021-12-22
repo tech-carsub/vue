@@ -10,6 +10,7 @@ import Setup from './Setup.vue';
 import Home from './examples/Home.vue';
 import Icons from './examples/Icons.vue';
 import Button from './examples/Button.vue';
+import ButtonGroup from './examples/ButtonGroup.vue';
 import Slider from './examples/Slider.vue';
 import Switch from './examples/Switch.vue';
 // import Toast from "./examples/Toast.vue";
@@ -28,6 +29,7 @@ const routes = [
   { path: '/', component: Home, name: 'home' },
   { path: '/icons', component: Icons, name: 'icons' },
   { path: '/button', component: Button, name: 'button' },
+  { path: '/button-group', component: ButtonGroup, name: 'button-group' },
   { path: '/slider', component: Slider, name: 'slider' },
   { path: '/switch', component: Switch, name: 'switch' },
   // { path: "/toast", component: Toast, name: 'toast' },

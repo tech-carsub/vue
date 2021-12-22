@@ -13,7 +13,7 @@ export default {
   props: {
     id,
     label: String,
-    labelClass: String,
+    labelClass: null,
     ...modelProps()
   },
   setup: (props, { emit }) => ({

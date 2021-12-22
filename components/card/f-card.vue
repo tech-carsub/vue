@@ -1,5 +1,5 @@
 <template>
-  <component :is="as" tabindex="0" role="button" :class="outerClasses">
+  <component :is="as" :class="outerClasses">
     <div v-if="!flat" :class="innerClasses" />
     <slot />
   </component>
