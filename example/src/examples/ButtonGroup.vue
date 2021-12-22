@@ -1,5 +1,9 @@
 <template>
   <div>
+    <setup title="ButtonGroup" comp-name="fButtonGroup, fButtonGroupItem" />
+
+    <h5 class="mb-16">Button group with buttons</h5>
+
     <f-button-group :outlined="toggleOutline" :raised="toggleRaised">
       <f-button-group-item>
         <f-clickable label @click="alert">Foo</f-clickable>
@@ -11,12 +15,14 @@
         <f-clickable label @click="alert">Baz</f-clickable>
       </f-button-group-item>
     </f-button-group>
-    <div class="mt-32">
-      <div><button @click="toggleOutline = !toggleOutline">Toggle outline</button> {{ toggleOutline }}</div>
-      <div><button @click="toggleRaised = !toggleRaised">Toggle raised</button> {{ toggleRaised }}</div>
-      <div><button @click="toggleSelected = !toggleSelected">Toggle selected</button> {{ toggleSelected }}</div>
+
+    <div class="mt-32 mb-48 flex gap-8">
+      <f-button utility @click="toggleOutline = !toggleOutline">{{ toggleOutline ? 'Remove' : 'Add' }} outline</f-button>
+      <f-button utility @click="toggleRaised = !toggleRaised">{{ toggleRaised ? 'Remove' : 'Add' }} shadow</f-button>
+      <f-button utility @click="toggleSelected = !toggleSelected">{{ toggleSelected ? 'Remove' : 'Add' }} selected UI</f-button>
     </div>
 
+    <h5 class="mv-16">Button group with radios</h5>
 
     <f-button-group outlined>
       <f-button-group-item :selected="radioModel === 'foo'">
@@ -31,7 +37,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { fButtonGroup, fButtonGroupItem, fClickable } from '#components'
+import { fButton, fButtonGroup, fButtonGroupItem, fClickable } from '#components'
 const toggleOutline = ref(false)
 const toggleRaised = ref(false)
 const toggleSelected = ref(false)
