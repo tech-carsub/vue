@@ -29,6 +29,7 @@
     "@eik/rollup-plugin": "^4.0.8",
     "@fabric-ds/component-classes": "^0.0.35",
     "@finn-no/dom-focus-lock-fixed": "^1.0.6",
+    "@floating-ui/dom": "^0.1.8",
     "create-v-model": "^2.1.2",
     "element-collapse": "^1.0.0",
     "femtobounce": "^1.0.0",

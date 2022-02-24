@@ -177,8 +177,9 @@ import { fModal } from '#components'
 
 const heightToggle = ref(false)
 const demoStyles = computed(() => ({
-  '--f-modal-max-height': heightToggle.value ? '100%' : '64%',
-  '--f-modal-height': '100%'
+  '--f-modal-min-height': heightToggle.value ? '100%' : '64%',
+  '--f-modal-max-height': '72%',
+  // '--f-modal-height': '100%'
 }))
 const changeHeight = () => heightToggle.value = !heightToggle.value
 const show = ref(false)

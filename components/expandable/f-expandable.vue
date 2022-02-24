@@ -1,5 +1,5 @@
 <template>
-  <component :is="as" class="f-expandable" :class="wrapperClasses" >
+  <component :is="as" :class="wrapperClasses" >
     <button v-if="hasTitle" type="button" :aria-expanded="expanded" :class="buttonClasses" @click="expanded = !expanded">
       <slot name="title" :expanded="expanded" />
       <span class="h4" v-if="title">{{ title }}</span>

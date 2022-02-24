@@ -3,10 +3,10 @@
     <setup title="Button" comp-name="fButton" />
 
     <div class="space-x-16">
-      <f-button primary>Click me!</f-button>
+      <f-button primary label="Click me!" />
       <f-button secondary>Click me!</f-button>
       <f-button quiet>Click me!</f-button>
-      <f-button secondary quiet small>Click me!</f-button>
+      <f-button secondary quiet small label="Click me!" />
       <f-button loading>Click me!</f-button>
     </div>
 

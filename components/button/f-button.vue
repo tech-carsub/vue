@@ -1,7 +1,8 @@
 <template>
   <component :is="href ? 'a' : 'button'" :href="href" :class="buttonClass" v-bind="saneDefaults">
-    <span v-if="!$slots.default">{{ label }}</span>
-    <slot />
+    <slot>
+      {{ label }}
+    </slot>
     <span v-if="loading" role="progressbar" aria-valuenow="0" aria-valuetext="Laster..." class="sr-only" />
   </component>
 </template>

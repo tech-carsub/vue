@@ -1,6 +1,6 @@
 // order matters here - fClickable in 'generic' needs to come early
-export * from './components/forms'
 export * from './components/generic'
+export * from './components/forms'
 export * from './components/box'
 export * from './components/breadcrumbs'
 export * from './components/button'
@@ -14,3 +14,4 @@ export * from './components/steps'
 export * from './components/switch'
 export * from './components/tabs'
 export * from './components/util'
+export * from './components/attention'
