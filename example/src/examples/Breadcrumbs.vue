@@ -28,14 +28,13 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
 import { fBreadcrumbs } from '#components'
 
 const token =
 `<f-breadcrumbs>
-  <a href="#/foo">Foo</a>
-  <a href="#/bar">Bar</a>
-  <a href="#/baz" aria-current="page">Baz</a>
+  <a href="#/omg">OMG</a>
+  <a href="#/wtf">WTF</a>
+  <span aria-current="page">BBQ</span>
 </f-breadcrumbs>`
 </script>
 
