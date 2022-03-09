@@ -7,7 +7,7 @@
         <f-suffix clear @click="handleClear(inputElement)" />
       </f-input>
 
-      <f-input #prefix v-model="prefixModel" label="I have a prefix" class="mb-16">
+      <f-input #prefix v-model="prefixModel" label="I have a prefix" class="mb-16" input-wrapper-class="w-1/2">
         <f-affix prefix label="+47" />
       </f-input>
 
