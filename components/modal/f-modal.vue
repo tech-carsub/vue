@@ -41,6 +41,7 @@ import { id } from '#util'
 import { setup as setupScrollLock, teardown as teardownScrollLock } from 'scroll-doctor'
 
 const transitions = 'transition-gpu transition-transform'
+const windowExists = typeof window !== 'undefined'
 
 export default {
   name: 'fModal',
@@ -115,6 +116,7 @@ export default {
     }
 
     async function handleShow(showing) {
+      if (!windowExists) return
       if (!showing) await teardownHandlers()
       await handleTransitions(showing)
       if (showing) await setupHandlers()
