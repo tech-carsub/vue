@@ -21,6 +21,14 @@
         <td>boolean</td>
         <td></td>
       </tr>
+      <tr>
+        <td>label-level</td>
+        <td>
+          <div>number</div>
+          <div class="annotation">Useable on toggles, will make the emitted <code>legend</code> element into a heading for accessibility</div>
+        </td>
+        <td></td>
+      </tr>
     </docs-table>
 
     <h4 class="mt-64 mb-16">Slots</h4>

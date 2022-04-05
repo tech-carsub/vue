@@ -22,7 +22,7 @@
       <option value="bar">Bar</option>
     </f-select>
 
-    <f-toggle v-else-if="activeExample === 'radio'" radio v-model="multiToggleModel" label="A very toggly label" :toggles="toggles" />
+    <f-toggle v-else-if="activeExample === 'radio'" radio v-model="multiToggleModel" label="A very toggly label" :toggles="toggles" :label-level="5" />
     <f-toggle v-else-if="activeExample === 'checkbox'" checkbox v-model="checkboxModel" label="A very toggly label" :toggles="toggles" />
     <div v-else-if="activeExample === 'radio-button'">
       <f-toggle radio-button :equal-width="isJustified" v-model="multiToggleModel" label="A very toggly label" :toggles="toggles" />

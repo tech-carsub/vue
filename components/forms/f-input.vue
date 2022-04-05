@@ -1,9 +1,9 @@
 <template>
-  <f-field v-bind="{ ...$attrs, ...$props }" #default="{ triggerValidation }" :class="{ 'has-suffix': $slots.suffix, 'has-prefix': $slots.prefix }">
+  <f-field v-bind="{ ...$attrs, ...$props }" #default="{ triggerValidation, aria }" :class="{ 'has-suffix': $slots.suffix, 'has-prefix': $slots.prefix }">
     <div class="input" :class="inputWrapperClass">
       <slot name="prefix" :inputElement="inputEl" />
-      <input v-if="mask" v-bind="{ ...$attrs, class: '' }" @blur="triggerValidation" ref="inputEl" :autocomplete="autocomplete" :id="id" :type="type">
-      <input v-else      v-bind="{ ...$attrs, class: '' }" @blur="triggerValidation" ref="inputEl" :autocomplete="autocomplete" :id="id" :type="type" v-model="model">
+      <input v-if="mask" v-bind="{ ...aria, ...$attrs, class: '' }" @blur="triggerValidation" ref="inputEl" :autocomplete="autocomplete" :id="id" :type="type">
+      <input v-else      v-bind="{ ...aria, ...$attrs, class: '' }" @blur="triggerValidation" ref="inputEl" :autocomplete="autocomplete" :id="id" :type="type" v-model="model">
       <slot name="suffix" :inputElement="inputEl" />
     </div>
   </f-field>
