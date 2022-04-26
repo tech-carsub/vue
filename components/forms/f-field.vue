@@ -3,7 +3,7 @@
     <component :is="labelType" v-if="label" class="field-label" :id="labelId" :for="labelFor" :role="valueOrUndefined(labelLevel, 'heading')" :aria-level="valueOrUndefined(labelLevel, labelLevel)">{{ label }}<span v-if="optional" class="pl-8 font-normal text-14 text-gray-500"> (valgfritt)</span></component>
     <slot :triggerValidation="triggerValidation" :labelFor="id" :labelId="labelId" :aria="aria" />
     <slot name="control" :form="collector" />
-    <div class="field-hint">
+    <div class="field-hint" v-if="hint || hasErrorMessage">
       <span :id="hintId" v-if="hint" v-html="hint" />
       <span v-if="hint && hasErrorMessage">, </span>
       <span :id="errorId" v-if="hasErrorMessage">{{ validationMsg }}</span>
