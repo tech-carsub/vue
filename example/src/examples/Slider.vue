@@ -2,11 +2,10 @@
   <div>
     <setup title="Slider" compName="fSlider" />
 
-    <p class="text-right text-12">Value: {{ largeNumber }}</p>
-
     <div class="space-y-32">
       <f-slider v-model="largeNumber" :min="1000" :max="10_000_000" :step="1000" label="a large number slider" />
       <f-slider disabled v-model="largeNumber" :min="1000" :max="10_000_000" :step="1000" label="a large number slider" />
+      <f-input label="Slider value" v-model="largeNumber" />
     </div>
 
     <section-header label="Documentation" />
@@ -50,7 +49,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { fSlider } from '#components'
+import { fSlider, fInput } from '#components'
 
 const largeNumber = ref(3_000_000)
 const token = `<f-slider v-model="largeNumber" :min="1000" :max="10_000_000" :step="1000" />`

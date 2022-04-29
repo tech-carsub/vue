@@ -18,11 +18,10 @@
 </template>
 
 <script>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { slider as c } from '@fabric-ds/component-classes'
-import { useDimensions } from './util.js'
-import { createHandlers } from './handlers.js'
+import { useDimensions, createHandlers } from '@fabric-ds/core/slider'
 
 export default {
   name: 'fSlider',
@@ -44,32 +43,36 @@ export default {
   setup(props, { emit, attrs }) {
     const sliderLine = ref(null)
     const thumb = ref(null)
-    const { dimensions } = useDimensions(sliderLine)
+    const dimensions = ref({})
+    const updateDimensions = _v => dimensions.value = _v
+    const { mountedHook, unmountedHook } = useDimensions()
+    onMounted(() => mountedHook(sliderLine.value, updateDimensions))
+    onBeforeUnmount(unmountedHook)
     const sliderPressed = ref(false)
     const v = createModel({ props, emit })
     const position = ref(v.value)
 
     // step is a computed so we can check if props.step is set or not
-    // and only do shiftedChange when set
+    // and only do getShiftedChange when set
     const step = computed(() => props.step || 1)
-    const shiftedChange = (n) => {
-      const r = 1.0 / step.value
-      return Math.floor(n * r) / r
-    }
 
-    watch(position, () => {
-      // prevents shiftedChange when modelValue was set externally
-      if (position.value === props.modelValue) return
-      const n = props.step ? shiftedChange(position.value) : position.value
-      if (v.value === n) return
-      v.value = n
-    })
-    watch(() => props.modelValue, () => {
-      if (sliderPressed.value || (position.value === props.modelValue)) return
-      position.value = props.modelValue
-    })
-    const thumbPosition = computed(() => ((position.value - props.min) / (props.max - props.min) * 100))
-    const transformValue = computed(() => (thumbPosition.value / 100) * dimensions.value.width) || 0
+    const sliderState = {
+      get position() { return position.value },
+      set position(v) { position.value = v },
+      get sliderPressed() { return sliderPressed.value },
+      set sliderPressed(v) { sliderPressed.value = v },
+      get val() { return v.value },
+      set val(_v) { v.value = _v },
+      get thumbEl() { return thumb.value },
+      get dimensions() { return dimensions.value },
+      get step() { return step.value },
+      emitFocus(v) { emit('focus', v) },
+      emitBlur(v) { emit('blur', v) }
+    }
+    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleClick, getThumbPosition, getThumbTransform, getShiftedChange } = createHandlers({ props, sliderState })
+
+    const thumbPosition = computed(getThumbPosition)
+    const transformValue = computed(getThumbTransform)
     const thumbStyles = computed(() => ({
       transform: 'translateX(' + transformValue.value + 'px)',
     }))
@@ -85,8 +88,18 @@ export default {
       'aria-valuenow': v.value,
       'aria-valuetext': attrs['aria-valuetext']
     }))
-
-    const { handleKeyDown, handleFocus, handleBlur, handleMouseDown, handleMouseUp, handleClick } = createHandlers({ props, emit, step, position, v, sliderPressed, thumb, dimensions })
+    
+    watch(position, () => {
+      // prevents shiftedChange when modelValue was set externally
+      if (position.value === props.modelValue) return
+      const n = props.step ? getShiftedChange(position.value) : position.value
+      if (v.value === n) return
+      v.value = n
+    })
+    watch(() => props.modelValue, () => {
+      if (sliderPressed.value || (position.value === props.modelValue)) return
+      position.value = props.modelValue
+    })
 
     return { c, aria, sliderLine, thumb, sliderActiveStyle, thumbStyles, handleClick, handleBlur, handleFocus, handleKeyDown, handleMouseDown, v }
   }
