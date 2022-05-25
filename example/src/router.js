@@ -15,6 +15,7 @@ import Expandable from './examples/Expandable.vue';
 import Steps from './examples/Steps.vue';
 import Pill from './examples/Pill.vue';
 import Attention from './examples/Attention.vue'
+import Alert from './examples/Alert.vue'
 import Utilities from './examples/Utilities.vue';
 
 export const routes = [
@@ -35,6 +36,7 @@ export const routes = [
   { path: '/pill', component: Pill, name: 'pill' },
   { path: '/utilities', component: Utilities, name: 'utilities' },
   { path: '/attention', component: Attention, name: 'attention' },
+  { path: '/alert', component: Alert, name: 'alert' },
 ]
 
 const scrollBehavior = () => ({ top: 0 })
