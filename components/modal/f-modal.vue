@@ -35,7 +35,7 @@
 
 <script>
 import { ref, computed, watch, nextTick, onBeforeUnmount } from 'vue'
-import { modal as c } from '@fabric-ds/component-classes'
+import { modal as c } from '@fabric-ds/css/component-classes'
 import focusLock from '@finn-no/dom-focus-lock-fixed'
 import { id } from '#util'
 import { setup as setupScrollLock, teardown as teardownScrollLock } from 'scroll-doctor'

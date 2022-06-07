@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { box as c } from '@fabric-ds/component-classes'
+import { box as c } from '@fabric-ds/css/component-classes'
 import { computed } from 'vue'
 
 export default {

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { suffix as c } from '@fabric-ds/component-classes'
+import { suffix as c } from '@fabric-ds/css/component-classes'
 
 export default {
   name: 'fSuffix',

@@ -19,7 +19,7 @@
 
 <script>
 import { ref } from 'vue'
-import { switchToggle as c } from '@fabric-ds/component-classes'
+import { switchToggle as c } from '@fabric-ds/css/component-classes'
 import { createModel, modelProps } from 'create-v-model'
 import { id } from '#util'
 

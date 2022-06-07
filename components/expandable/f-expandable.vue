@@ -22,7 +22,7 @@ import { ref, computed, watch, nextTick } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { absentProp } from '#util'
 import { fExpandTransition as expandTransition } from '#generics'
-import { expandable as c, box } from '@fabric-ds/component-classes'
+import { expandable as c, box } from '@fabric-ds/css/component-classes'
 
 export default {
   name: 'fExpandable',

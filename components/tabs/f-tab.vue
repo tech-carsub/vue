@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { tab as c } from '@fabric-ds/component-classes'
+import { tab as c } from '@fabric-ds/css/component-classes'
 import { inject, computed, onBeforeUnmount } from 'vue'
 
 export default {

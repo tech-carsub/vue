@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { card as c } from '@fabric-ds/component-classes'
+import { card as c } from '@fabric-ds/css/component-classes'
 import { computed } from 'vue'
 
 export default {
