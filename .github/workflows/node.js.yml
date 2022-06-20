@@ -19,4 +19,5 @@ jobs:
       with:
         node-version: current
     - run: pnpm i
+    - run: pnpm test
     - run: pnpm build

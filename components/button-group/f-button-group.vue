@@ -5,28 +5,24 @@
 </template>
 
 <script>
+export default { name: 'fButtonGroup' }
+</script>
+
+<script setup>
 import { provide, computed, toRef } from 'vue'
 
-export default {
-  name: 'fButtonGroup',
-  props: {
-    outlined: Boolean,
-    raised: Boolean,
-    vertical: Boolean
-  },
-  setup(props) {
-    provide('outlined', toRef(props, 'outlined'))
-    provide('raised', toRef(props, 'raised'))
-    provide('quiet', toRef(props, 'quiet'))
+const props = defineProps({
+  outlined: Boolean,
+  raised: Boolean,
+  vertical: Boolean
+})
 
-    const classes = computed(() => ({
-      ['border border-gray-300']: props.outlined,
-      ['filter drop-shadow-10']: props.raised,
-      [props.vertical ? 'divide-y' : 'divide-x']: true,
-      ['flex-col']: props.vertical
-    }))
+provide('outlined', toRef(props, 'outlined'))
 
-    return { classes }
-  }
-}
+const classes = computed(() => ({
+  ['border border-gray-300']: props.outlined,
+  ['filter drop-shadow-10']: props.raised,
+  [props.vertical ? 'divide-y' : 'divide-x']: true,
+  ['flex-col']: props.vertical
+}))
 </script>

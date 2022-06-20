@@ -2,7 +2,7 @@
 
 ## development
 
-- Run `yarn dev`, this causes Vite (from the `example` folder) to start a server on port 3003
+- Run `pnpm dev`, this causes Vite (from the `example` folder) to start a server on port 3003
 
 ## Publishing
 
