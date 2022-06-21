@@ -2,7 +2,7 @@
   <div class="f-expandable">
     <f-expand-transition>
       <div v-if="model" role="alert">
-        <div :class="wrapperClass" :style="wrapperStyle" v-if="model" data-test="wrapper">
+        <div :class="wrapperClass" :style="wrapperStyle" v-if="model" data-test="wrapper" :role="role">
           <div class="flex">
             <div class="w-16 mr-8">
               <svg v-if="negative" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 17"> <path fill="#D91F0A" d="M4.1 1.6A2 2 0 0 1 5.5 1h5c.5 0 1 .2 1.4.6L15.4 5c.4.4.6.9.6 1.4v5c0 .5-.2 1-.6 1.4L12 16.4a2 2 0 0 1-1.4.6h-5a2 2 0 0 1-1.4-.6L.6 13a2 2 0 0 1-.6-1.4v-5c0-.5.2-1 .6-1.4L4 1.6Z"/> <path fill="#fff" fill-rule="evenodd" d="M8 4.3c.4 0 .8.3.8.7v5a.8.8 0 0 1-1.6 0V5c0-.4.4-.8.8-.8Z" clip-rule="evenodd"/> <path fill="#fff" d="M8.8 12.8a.8.8 0 1 1-1.6 0 .8.8 0 0 1 1.6 0Z"/> </svg>
@@ -15,7 +15,7 @@
               </svg>
             </div>
             <div class="last-child:mb-0 text-14" data-test="content">
-              <p class="font-bold">{{ title }}</p>
+              <p class="font-bold" v-if="title">{{ title }}</p>
               <slot />
             </div>
           </div>
@@ -37,6 +37,10 @@ import { colorMap, possibleColorBooleans, colorBooleanProps } from './logic.js'
 
 const props = defineProps({
   title: String,
+  role: {
+    type: String,
+    default: 'alert'
+  },
   ...colorBooleanProps,
   ...modelProps(),
 })

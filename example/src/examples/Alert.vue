@@ -18,7 +18,6 @@
           <option value="negative">Negative</option>
           <option value="positive">Positive</option>
           <option value="warning">Warning</option>
-          <option value="neutral">Neutral</option>
           <option value="info">Info</option>
         </f-select>
       </div>
@@ -55,10 +54,6 @@ const alertProps = {
   warning: {
     warning: true,
     title: `Maybe ${sentence}?`
-  },
-  neutral: {
-    neutral: true,
-    title: `Meh, ${sentence} again.`
   },
   info: {
     info: true,
