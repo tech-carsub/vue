@@ -20,7 +20,7 @@
     "site": "npm run site:build && npm run site:cloud",
     "site:build": "cd example && vite build",
     "site:cloud": "cd example/dist && cp index.html 200.html && cp index.html 404.html && cp ../CNAME .",
-    "preversion": "npx @eik/cli login && npm run build",
+    "preversion": "npm run test && npx @eik/cli login && npm run build",
     "version": "npm publish",
     "postversion": "npm run publish:eik && git push --follow-tags"
   },
