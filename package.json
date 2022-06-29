@@ -3,7 +3,10 @@
   "version": "0.12.5",
   "description": "Fabric components for Vue 3",
   "type": "module",
-  "exports": "./dist/fabric-vue.js",
+  "exports": {
+    ".": "./dist/fabric-vue.js",
+    "./docs": "./dist/docs/fabric-vue.js"
+  },
   "imports": {
     "#util": "./components/util/index.js",
     "#components": "./index.js",
