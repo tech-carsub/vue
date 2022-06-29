@@ -6,13 +6,8 @@ import eik from '@eik/rollup-plugin';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-const isEikBuild = !!process.env.eik;
-const outputFile = isEikBuild ? './dist/eik/index.js' : './dist/fabric-vue.js';
 const browsers = 'supports es6-module and > 2% in NO and not dead';
-const external = isEikBuild ? [] : ['vue', ...Object.keys(pkg.dependencies)];
-
-const plugins = [
-  ...(isEikBuild ? [eik()] : []),
+const commonPlugins = [
   vue(),
   getBabelOutputPlugin({
     presets: [['@babel/preset-env', { targets: browsers, bugfixes: true }]],
@@ -22,8 +17,25 @@ const plugins = [
   terser(),
 ];
 
-export default {
-  input: 'index.js',
-  output: { file: outputFile, format: 'es', exports: 'named', sourcemap: true },
-  plugins, external,
-}
+export default [
+  { // local build
+    input: 'index.js',
+    output: { file: './dist/fabric-vue.js', format: 'es', exports: 'named', sourcemap: true },
+    plugins: commonPlugins,
+    external: ['vue', ...Object.keys(pkg.dependencies)]
+  },
+  { // docs build
+    input: 'index.js',
+    output: { file: './dist/docs/fabric-vue.js', format: 'es', exports: 'named', sourcemap: true },
+    plugins: commonPlugins,
+    external: ['vue']
+  },
+  { // eik build
+    input: 'index.js',
+    output: { file: './dist/eik/index.js', format: 'es', exports: 'named', sourcemap: true },
+    plugins: [
+      eik(),
+      ...commonPlugins
+    ]
+  }
+]

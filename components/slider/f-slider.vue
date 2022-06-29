@@ -1,13 +1,14 @@
 <template>
   <div :class="c.wrapper">
     <div :class="{ [c.trackDisabled]: disabled, [c.track]: true }" ref="sliderLine" @click="handleClick" />
-    <div :class="{ [c.activeTrackDisabled]: disabled, [c.activeTrack]: true }" :style="sliderActiveStyle" @click="handleClick" />
+    <div :class="{ [c.activeTrackDisabled]: disabled, [c.activeTrack]: true }" :style="sliderActiveStyle" @click="handleClick" data-test="slider-active" />
     <div :class="{ [c.thumbDisabled]: disabled, [c.thumbEnabled]: !disabled, [c.thumb]: true }"
       ref="thumb"
       role="slider"
       tabindex="0"
       v-bind="aria"
       :style="thumbStyles"
+      data-test="thumb"
       @mousedown="handleMouseDown"
       @touchstart="handleMouseDown"
       @blur="handleBlur"

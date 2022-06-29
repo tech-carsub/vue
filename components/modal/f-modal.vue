@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div :class="c.backdrop" v-if="showModal" @click.self="emitDismiss" ref="backdropEl">
+    <div :class="c.backdrop" v-if="showModal" @click.self="emitDismiss" ref="backdropEl" data-test="backdrop">
       <transition name="slide">
         <div v-if="showContent" :class="c.modal" tabindex="-1" aria-modal="true" aria-labelledby="f-modal-title" role="dialog" ref="modalEl">
           <div :class="[c.title, headerClasses]">
