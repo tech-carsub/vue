@@ -1,6 +1,6 @@
-const getSuffix = () => Date.now().toString(36).slice(5, 8) + '-' + Math.random().toString(36).slice(2, 8)
+import { v4 as uuid } from '@lukeed/uuid'
 
-export const id = { default: () => 'f-' + getSuffix() }
+export const id = { default: () => 'f-' + uuid() }
 export const absentProp = Symbol()
 export const installer = (components) => (app) => components.forEach(c => {
   if (!c.name) throw `Missing name property for ${c}`
