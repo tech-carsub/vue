@@ -1,7 +1,7 @@
 <template>
   <div class="tap-highlight-transparent">
     <input type="checkbox" class="sr-only" :id="id" v-model="model" :disabled="disabled" ref="inputEl" />
-    <div @click="simulateClick" :class="{ [c.label]: true, [c.labelDisabled]: disabled }" data-test="switch-ui">
+    <div @click="simulateClick" :class="{ [c.label]: true, [c.labelDisabled]: disabled }">
       <div :class="{
         [c.switchTrack]: true,
         [c.switchTrackSelected]: model && !disabled,
