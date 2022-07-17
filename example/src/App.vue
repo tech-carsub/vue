@@ -1,9 +1,13 @@
 <script setup>
-import { routes } from './router'
+import { fButton } from '#components'
+import Tokenizer from './Tokenizer.vue'
 </script>
 
 <template>
   <div>
+    <tokenizer>
+      <f-button primary>Hello Fabric</f-button>
+    </tokenizer>
     <router-view />
   </div>
 </template>
