@@ -1,10 +1,30 @@
-export const cleanupExpression = (expr) => expr.replace(/\$setup\./g, '')
+import { serializeJs } from './TokenUtil'
 function kebabCase(str) {
   return str
     .replace(/_/gu, '-')
     .replace(/\B([A-Z])/gu, '-$1')
     .toLowerCase()
 }
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+function camelCase(str) {
+  if (isPascalCase(str)) {
+    return str.charAt(0).toLowerCase() + str.slice(1)
+  }
+  return str.replace(/[-_](\w)/gu, (_, c) => (c ? c.toUpperCase() : ''))
+}
+function isPascalCase(str) {
+  return !hasSymbols(str) && !/^[a-z]/u.test(str) && !/-|_|\s/u.test(str)
+}
+function hasSymbols(str) {
+  return /[!"#%&'()*+,./:;<=>?@[\\\]^`{|}]/u.exec(str) // without " ", "$", "-" and "_"
+}
+function pascalCase(str) {
+  return capitalize(camelCase(str))
+}
+
+const cleanupExpression = (expr) => expr.replace(/\$setup\./g, '')
 export const getTagName = (vnode) => kebabCase(_getTagName(vnode))
 function _getTagName(vnode) {
   if (typeof vnode.type === 'string') {
@@ -40,7 +60,6 @@ export const useGenerateDirective = ({ attrs, multilineAttrs }) => (dirName, dir
   for (const key in dir.modifiers) if (dir.modifiers[key]) modifiers += `.${key}`
   let arg = ''
   if (dir.arg) arg = `:${dir.arg}`
-  // Cleanup render code
   if (valueCode) valueCode = valueCode.replace(/^\$(setup|props|data)\./g, '')
   const valueLines = valueCode ? [valueCode] : serializeAndCleanJs(dir.value)
   const attr = []

@@ -6,7 +6,7 @@ import Tokenizer from './Tokenizer.vue'
 <template>
   <div>
     <tokenizer>
-      <div>
+      <div class="space-x-8">
         <f-button primary>Hello Fabric</f-button>
         <f-button primary label="Hello Fabric" />
       </div>
