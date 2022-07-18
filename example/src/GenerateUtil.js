@@ -1,5 +1,12 @@
 export const cleanupExpression = (expr) => expr.replace(/\$setup\./g, '')
-export function getTagName (vnode) {
+function kebabCase(str) {
+  return str
+    .replace(/_/gu, '-')
+    .replace(/\B([A-Z])/gu, '-$1')
+    .toLowerCase()
+}
+export const getTagName = (vnode) => kebabCase(_getTagName(vnode))
+function _getTagName(vnode) {
   if (typeof vnode.type === 'string') {
     return vnode.type
   } else if (vnode.type?.__asyncResolved) {
@@ -10,14 +17,14 @@ export function getTagName (vnode) {
   } else if (vnode.type?.__file) {
     return getNameFromFile(vnode.type.__file)
   }
-  return 'Anonymous'
+  return 'anonymous'
 }
 
 function getNameFromFile (file) {
   const parts = /([^/]+)\.vue$/.exec(file)
   return parts
     ? pascalCase(parts[1])
-    : 'Anonymous'
+    : 'anonymous'
 }
 
 export function serializeAndCleanJs (value) {
@@ -107,6 +114,8 @@ export const useAddAttr = ({ attrs, skipProps, multilineAttrs, vnode }) => (prop
     } else {
       attrs.push([`${directive}${arg}="${serialized[0]}"`])
     }
+  } else if ([vnode?.type?.props?.[prop]?.type?.name, vnode?.type?.props?.[prop]?.name].includes(Boolean.name)) {
+    attrs.push([prop])
   } else {
     attrs.push([`${prop}="${value}"`])
   }

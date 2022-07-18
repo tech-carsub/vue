@@ -6,7 +6,10 @@ import Tokenizer from './Tokenizer.vue'
 <template>
   <div>
     <tokenizer>
-      <f-button primary>Hello Fabric</f-button>
+      <div>
+        <f-button primary>Hello Fabric</f-button>
+        <f-button primary label="Hello Fabric" />
+      </div>
     </tokenizer>
     <router-view />
   </div>

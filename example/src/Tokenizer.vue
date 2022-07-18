@@ -1,5 +1,5 @@
 <script setup>
-import { useSlots } from 'vue'
+import { useSlots, ref } from 'vue'
 import { vModelText, vModelCheckbox, vModelSelect, vModelRadio, vModelDynamic, Text } from 'vue'
 import { createAutoBuildingObject, indent, serializeJs, voidElements } from './TokenUtil'
 import { getTagName, serializeAndCleanJs, cleanupExpression, useGenerateDirective, useAddAttr } from './GenerateUtil'
@@ -31,18 +31,22 @@ function hasSymbols(str) {
 function pascalCase(str) {
   return capitalize(camelCase(str))
 }
+
 const slots = useSlots()
-generateSourceCode(slots)
+const resultText = ref('Hi mom')
+const updateText = async () => {
+  const lines = await generateSourceCode(slots)
+  resultText.value = lines.join('\n')
+}
+updateText()
 
 
 async function generateSourceCode (_slots) {
   const vnode = _slots.default?.() ?? []
   const list = Array.isArray(vnode) ? vnode : [vnode]
-  const lines = []
   for (const n in list) {
     const vnode = list[n]
     const result = await printVNode(vnode)
-    console.log(result.lines.join('\n'))
     return result.lines
   }
   // return lines.join('\n')
@@ -60,19 +64,13 @@ async function printVNode (vnode) {
     if (vnode.type?.__asyncLoader && !vnode.type.__asyncResolved) await vnode.type.__asyncLoader()
 
     const state = { vnode, attrs: [], skipProps: ['key'], multilineAttrs: false }
-    const addAttr = useAddAttr(state)
 
     // Directives
     handleDirectives(state)
     handleProps(state)
 
-    // if (propsOverrides) {
-    //   for (const prop in propsOverrides) {
-    //     addAttr(prop, propsOverrides[prop])
-    //   }
-    // }
-
-    if (state.attrs.length > 1) state.multilineAttrs = true
+    // See TODO below
+    // if (state.attrs.length > 1) state.multilineAttrs = true
 
     // Tags
     const tagName = getTagName(vnode)
@@ -144,21 +142,25 @@ async function printVNode (vnode) {
 
     // Template
     const tag = [`<${tagName}`]
-    if (state.multilineAttrs) {
-      for (const attrLines of state.attrs) {
-        tag.push(...indent(attrLines))
-      }
-      if (childLines.length > 0) {
-        tag.push('>')
-      }
-    } else {
-      if (state.attrs.length === 1) {
-        tag[0] += ` ${state.attrs[0]}`
-      }
-      if (childLines.length > 0) {
-        tag[0] += '>'
-      }
+    // if (state.multilineAttrs) {
+    for (const attrLines of state.attrs) {
+      tag[0] += ` ${attrLines}`
+      // TODO: make this behavior switch/configurable
+      // This makes the attrs multiple lines - old behavior
+      // tag.push(...indent(attrLines))
     }
+    if (childLines.length > 0) {
+      tag[0] += `>`
+      // tag.push('>')
+    }
+    // } else {
+    //   if (state.attrs.length === 1) {
+    //     tag[0] += ` ${state.attrs[0]}`
+    //   }
+    //   if (childLines.length > 0) {
+    //     tag[0] += '>'
+    //   }
+    // }
 
     const isVoid = voidElements.includes(tagName.toLowerCase())
     if (childLines.length > 0) {
@@ -187,4 +189,5 @@ async function printVNode (vnode) {
 
 <template>
   <slot />
+  <pre><code>{{ resultText }}</code></pre>
 </template>
