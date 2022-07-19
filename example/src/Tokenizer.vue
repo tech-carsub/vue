@@ -1,17 +1,26 @@
 <script setup>
-import { useSlots, ref } from 'vue'
+import { useSlots, ref, inject, watch } from 'vue'
 import { Text } from 'vue'
 import { getTagName } from './GenerateUtil'
 import { handleDirectives, handleProps, handleChildren, handleSlots, renderTag } from './TokenHandlers'
 
+const props = defineProps({ state: Array })
+
+const highlighter = inject('highlighter')
 const slots = useSlots()
 const resultText = ref('Hi mom')
 const updateText = async () => {
   const lines = await generateSourceCode(slots)
-  resultText.value = lines.join('\n')
+  const code = lines.join('\n')
+  const html = highlighter.codeToHtml(code, { lang: 'vue-html' })
+  resultText.value = html
 }
 updateText()
 
+watch(() => props.state, () => {
+  console.log("OMG")
+  updateText()
+})
 
 async function generateSourceCode (_slots) {
   const vnode = _slots.default?.() ?? []
@@ -54,5 +63,12 @@ async function printVNode (vnode) {
 
 <template>
   <slot />
-  <pre class="my-16 p-16 bg-gray-100 rounded-8 text-12"><code>{{ resultText }}</code></pre>
+  <div class="my-16 text-14" v-html="resultText" />
 </template>
+
+<style>
+.shiki {
+  padding: 16px;
+  border-radius: 8px;
+}
+</style>

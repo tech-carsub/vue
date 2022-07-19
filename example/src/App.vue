@@ -1,13 +1,17 @@
 <script setup>
+import { ref } from 'vue'
 import { fButton } from '#components'
 import Tokenizer from './Tokenizer.vue'
+
+const foo = ref(false)
 </script>
 
 <template>
   <div>
-    <tokenizer>
+    <button @click="foo = !foo">foo</button>
+    <tokenizer :state="[foo]">
       <div class="space-x-8">
-        <f-button primary>Hello Fabric</f-button>
+        <f-button primary negative :quiet="foo">Hello Fabric</f-button>
         <f-button primary label="Hello Fabric" />
       </div>
     </tokenizer>
