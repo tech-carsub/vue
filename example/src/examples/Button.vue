@@ -1,98 +1,54 @@
-<template>
-  <div>
-    <setup title="Button" comp-name="fButton" />
-
-    <div class="space-x-16">
-      <f-button primary label="Click me!" />
-      <f-button secondary>Click me!</f-button>
-      <f-button quiet>Click me!</f-button>
-      <f-button secondary quiet small label="Click me!" />
-      <f-button loading>Click me!</f-button>
-    </div>
-
-    <section-header label="Documentation" />
-
-    <h4>Token</h4>
-    <show-token :token="token" />
-
-    <h4 class="mt-32 mb-16">Props</h4>
-    <docs-table>
-      <tr>
-        <td>label</td>
-        <td>
-          <div>string</div>
-          <div class="annotation">Interchangable with the default slot for labelling</div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>href</td>
-        <td>
-          <div>string</div>
-          <div class="annotation">When set, an anchor tag will be used instead of a button</div>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>type</td>
-        <td>string</td>
-        <td>button</td>
-      </tr>
-    </docs-table>
-
-    <h4 class="mt-64 mb-16">Variants</h4>
-    <docs-table>
-      <template #titles>
-        <th>main</th>
-        <th>combinations</th>
-      </template>
-      <tr>
-        <td>primary</td>
-        <td>
-          <div>negative</div>
-          <div>small</div>
-        </td>
-      </tr>
-      <tr>
-        <td>secondary</td>
-        <td>
-          <div>quiet</div>
-          <div>small</div>
-        </td>
-      </tr>
-      <tr>
-        <td>negative</td>
-        <td>
-          <div>quiet</div>
-          <div>small</div>
-        </td>
-      </tr>
-      <tr>
-        <td>link</td>
-        <td>
-          <div>small</div>
-        </td>
-      </tr>
-      <tr>
-        <td>utility</td>
-        <td>
-          <div>small</div>
-        </td>
-      </tr>
-      <tr>
-        <td>pill</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>loading</td>
-        <td class="annotation">Can be used with any button type</td>
-      </tr>
-    </docs-table>
-  </div>
-</template>
-
 <script setup>
 import { fButton } from '#components'
+import Control, { checkbox, radio, useIsActive } from '../Control.vue'
+import { reactive } from 'vue'
 
-const token = `<f-button primary>Click me!</f-button>`
+const variants = reactive({ active: 'Primary' })
+
+const modifiers = reactive({
+  Quiet: false,
+  Small: false
+})
+
+const variantControls = [
+  { name: 'Primary', radio },
+  { name: 'Secondary', radio },
+  { name: 'Link', radio },
+  { name: 'Utility', radio },
+  { name: 'Pill', radio },
+]
+const active = useIsActive(variants)
+
+const modifierControls = [
+  { name: 'Negative', checkbox },
+  { name: 'Quiet', checkbox },
+  { name: 'Small', checkbox },
+  { name: 'Loading', checkbox }
+]
 </script>
+
+<template>
+  <div>
+    <h1 class="mb-64">Button</h1>
+
+    <token :state="[variants, modifiers]">
+      <f-button
+        :primary="active('Primary')"
+        :secondary="active('Secondary')"
+        :negative="modifiers.Negative"
+        :link="active('Link')"
+        :utility="active('Utility')"
+        :pill="active('Pill')"
+        :quiet="modifiers.Quiet"
+        :small="modifiers.Small"
+        :loading="modifiers.Loading"
+        label="Hello Fabric" />
+    </token>
+
+    <div class="bg-gray-200 my-16 p-16 rounded-8 space-y-24 overflow-x-scroll">
+      <control label="Variants" :controls="variantControls" :state="variants" />
+      <control label="Modifiers" :controls="modifierControls" :state="modifiers" />
+    </div>
+
+  </div>
+</template>

@@ -1,32 +1,29 @@
-<script setup>
-import { ref } from 'vue'
-import { fButton } from '#components'
-import Tokenizer from './Tokenizer.vue'
-
-const foo = ref(false)
-</script>
-
 <template>
-  <div>
-    <button @click="foo = !foo">foo</button>
-    <tokenizer :state="[foo]">
-      <div class="space-x-8">
-        <f-button primary negative :quiet="foo">Hello Fabric</f-button>
-        <f-button primary label="Hello Fabric" />
-      </div>
-    </tokenizer>
+  <div class="max-w-screen-md mx-auto mt-32">
     <router-view />
   </div>
 </template>
 
 <style>
-.token {
+.shiki {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
   white-space: pre;
-  line-height: 1.8;
+  font-size: 14px;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 24px 0;
+  overflow: scroll;
+}
+@media (max-width: 640px) {
+  .shiki {
+    font-size: 12px;
+  }
 }
 code {
   color: var(--f-aqua-800);
+}
+.page-container {
+  background-color: var(--f-gray-100) !important;
 }
 </style>

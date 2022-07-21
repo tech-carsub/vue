@@ -1,0 +1,28 @@
+<script setup>
+import { fButton } from '#components'
+</script>
+
+<template>
+  <div>
+    <f-button-group outlined class="my-32">
+      <f-button-group-item>
+        <f-clickable radio @click="alert">Primary</f-clickable>
+      </f-button-group-item>
+      <f-button-group-item :selected="toggleSelected">
+        <f-clickable radio @click="alert">Negative</f-clickable>
+      </f-button-group-item>
+      <f-button-group-item>
+        <f-clickable radio @click="alert">Baz</f-clickable>
+      </f-button-group-item>
+    </f-button-group>
+
+    <token>
+      <div class="space-x-16">
+        <f-button primary label="Hello Fabric" />
+        <f-button secondary label="Hello Fabric" />
+        <f-button quiet label="Hello Fabric" />
+        <f-button quiet small label="Hello Fabric" />
+      </div>
+    </token>
+  </div>
+</template>
