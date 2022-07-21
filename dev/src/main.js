@@ -5,7 +5,7 @@ import { router } from './router'
 import { setWasm, setCDN, getHighlighter } from 'shiki'
 import Control from './Control.vue'
 import Controls from './Controls.vue'
-import ControlItem from './ControlItem.vue'
+import ComponentTitle from './ComponentTitle.vue'
 import { Token } from '@itsy/token'
 
 setWasm('/shiki/dist/onigasm.wasm')
@@ -19,5 +19,6 @@ createApp(App)
   .component('token', Token)
   .component('control', Control)
   .component('controls', Controls)
+  .component('component-title', ComponentTitle)
   .use(router)
   .mount('#app');

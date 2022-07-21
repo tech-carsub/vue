@@ -1,15 +1,10 @@
 <script setup>
 import { fButton } from '#components'
-import { checkbox, radio, useIsActive } from '../Control.vue'
+import { checkbox, radio, useIsActive } from '#dev-util'
 import { reactive } from 'vue'
 
 const variants = reactive({ active: 'Primary' })
-
-const modifiers = reactive({
-  Quiet: false,
-  Small: false
-})
-
+const active = useIsActive(variants)
 const variantControls = [
   { name: 'Primary', radio },
   { name: 'Secondary', radio },
@@ -17,8 +12,13 @@ const variantControls = [
   { name: 'Utility', radio },
   { name: 'Pill', radio },
 ]
-const active = useIsActive(variants)
 
+const modifiers = reactive({
+  Negative: false,
+  Quiet: false,
+  Small: false,
+  Loading: false
+})
 const modifierControls = [
   { name: 'Negative', checkbox },
   { name: 'Quiet', checkbox },
@@ -29,7 +29,7 @@ const modifierControls = [
 
 <template>
   <div>
-    <h1 class="mb-64">Button</h1>
+    <component-title title="Button" />
 
     <token :state="[variants, modifiers]">
       <f-button
@@ -49,6 +49,5 @@ const modifierControls = [
       <control label="Variants" :controls="variantControls" :state="variants" />
       <control label="Modifiers" :controls="modifierControls" :state="modifiers" />
     </controls>
-
   </div>
 </template>

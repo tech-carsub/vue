@@ -10,11 +10,12 @@
   "imports": {
     "#util": "./components/util/index.js",
     "#components": "./index.js",
-    "#generics": "./components/generic/index.js"
+    "#generics": "./components/generic/index.js",
+    "#dev-util": "./dev/src/util.js"
   },
   "scripts": {
     "cp": "mkdir -p ./dev/public/shiki && cp -r ./node_modules/shiki/{dist,languages,samples,themes} ./dev/public/shiki",
-    "dev": "vite dev dev",
+    "dev": "vite dev dev --config ./vite.config.js",
     "test": "vitest run",
     "watch": "vitest watch",
     "build": "rm -rf dist && rollup -c",
