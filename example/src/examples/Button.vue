@@ -1,6 +1,6 @@
 <script setup>
 import { fButton } from '#components'
-import Control, { checkbox, radio, useIsActive } from '../Control.vue'
+import { checkbox, radio, useIsActive } from '../Control.vue'
 import { reactive } from 'vue'
 
 const variants = reactive({ active: 'Primary' })
@@ -45,10 +45,10 @@ const modifierControls = [
         label="Hello Fabric" />
     </token>
 
-    <div class="bg-gray-200 my-16 p-16 rounded-8 space-y-24 overflow-x-scroll">
+    <controls>
       <control label="Variants" :controls="variantControls" :state="variants" />
       <control label="Modifiers" :controls="modifierControls" :state="modifiers" />
-    </div>
+    </controls>
 
   </div>
 </template>

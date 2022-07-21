@@ -24,6 +24,6 @@ code {
   color: var(--f-aqua-800);
 }
 .page-container {
-  background-color: var(--f-gray-100) !important;
+  background-color: var(--f-gray-50) !important;
 }
 </style>

@@ -1,4 +1,5 @@
 <script setup>
+import { fButtonGroupItem, fClickable } from '#components'
 import { computed } from 'vue'
 
 const props = defineProps({

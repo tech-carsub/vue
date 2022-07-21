@@ -3,7 +3,9 @@ import App from './App.vue';
 import Cleave from 'cleave-lite';
 import { router } from './router'
 import { setWasm, setCDN, getHighlighter } from 'shiki'
-import { ButtonGroup } from '#components'
+import Control from './Control.vue'
+import Controls from './Controls.vue'
+import ControlItem from './ControlItem.vue'
 import { Token } from '@itsy/token'
 
 setWasm('/shiki/dist/onigasm.wasm')
@@ -15,6 +17,7 @@ createApp(App)
   .provide('Cleave', Cleave)
   .provide('highlighter', highlighter)
   .component('token', Token)
-  .use(ButtonGroup)
+  .component('control', Control)
+  .component('controls', Controls)
   .use(router)
   .mount('#app');
