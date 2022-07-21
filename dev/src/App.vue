@@ -6,8 +6,7 @@
 
 <style>
 .shiki {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    Liberation Mono, Courier New, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   white-space: pre;
   font-size: 14px;
   padding: 16px;
