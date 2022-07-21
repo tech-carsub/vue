@@ -11,7 +11,7 @@ import { Token } from '@itsy/token'
 setWasm('/shiki/dist/onigasm.wasm')
 setCDN('/shiki/')
 
-const highlighter = await getHighlighter({ theme: 'nord', langs: ['js', 'vue-html'] })
+const highlighter = await getHighlighter({ theme: 'vitesse-light', langs: ['js', 'vue-html'] })
 
 createApp(App)
   .provide('Cleave', Cleave)
