@@ -22,6 +22,9 @@
   .shiki {
     font-size: 12px;
   }
+  .controls label {
+    font-size: 12px;
+  }
 }
 code {
   color: var(--f-aqua-800);

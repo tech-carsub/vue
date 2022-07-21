@@ -20,6 +20,7 @@ export default defineConfig({
       }
     }
   })],
+  build: { target: 'esnext' },
   server: { host: "0.0.0.0", port: 3003 },
   resolve: { alias }
 })
