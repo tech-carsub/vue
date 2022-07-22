@@ -1,21 +1,31 @@
 <script setup>
+import { reactive } from 'vue'
 import { fBox, fClickable } from '#components'
+import { checkbox, buildCheckboxState } from '#dev-util'
+
+const controls = [
+  { name: 'Bleed', checkbox },
+  { name: 'Bordered', checkbox },
+  { name: 'Clickable', checkbox },
+  { name: 'Info', checkbox },
+  { name: 'Neutral', checkbox },
+]
+const state = reactive(buildCheckboxState({ controls, active: 'Bleed' }))
+const handleClick = () => alert('Hello Fabric!')
 </script>
 
 <template>
   <div>
     <component-title title="Box" />
 
-    <token class="py-24">
-      <f-box bleed class="bg-aqua-300">
-        <h3 class="h4">I am some content</h3>
+    <token class="py-24" :state="[state]">
+      <f-box :bleed="state.Bleed" :bordered="state.Bordered" :info="state.Info" :neutral="state.Neutral" :class="[!(state.Info || state.Neutral) && 'bg-aqua-300']">
+        <h3 v-if="!state.Clickable" class="h4">I am some content</h3>
+        <f-clickable v-else @click="handleClick"><h3 class="h4 mb-0">I am some clickable content</h3></f-clickable>
       </f-box>
     </token>
-    <!-- <f-box v-else-if="activeExample === 'bordered'" as="section" bordered>
-      <h3 class="h1">I am some content</h3>
-    </f-box>
-    <f-box v-else-if="activeExample === 'clickable'" info clickable>
-      <h3 class="h1"><f-clickable @click="clickAction" class="font-bold">I am some content</f-clickable></h3>
-    </f-box> -->
+    <demo-controls>
+      <demo-control label="Variants" :controls="controls" :state="state" />
+    </demo-controls>
   </div>
 </template>

@@ -45,9 +45,9 @@ const modifierControls = [
         label="Hello Fabric" />
     </token>
 
-    <controls>
-      <control label="Variants" :controls="variantControls" :state="variants" />
-      <control label="Modifiers" :controls="modifierControls" :state="modifiers" />
-    </controls>
+    <demo-controls>
+      <demo-control label="Variants" :controls="variantControls" :state="variants" />
+      <demo-control label="Modifiers" :controls="modifierControls" :state="modifiers" />
+    </demo-controls>
   </div>
 </template>

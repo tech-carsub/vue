@@ -54,9 +54,9 @@ const variantControls = [
       </f-alert>
     </token>
 
-    <controls class="flex" x>
-      <control label="Visibility" :controls="showControls" :state="showState" />
-      <control label="Variants" :controls="variantControls" :state="current" />
-    </controls>
+    <demo-controls class="flex" x>
+      <demo-control label="Visibility" :controls="showControls" :state="showState" />
+      <demo-control label="Variants" :controls="variantControls" :state="current" />
+    </demo-controls>
   </div>
 </template>
