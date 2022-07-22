@@ -11,7 +11,6 @@
   font-size: 14px;
   padding: 16px;
   border-radius: 8px;
-  margin: 24px 0;
   overflow: scroll;
   background-color: var(--f-gray-100) !important;
   border: 1px solid var(--f-gray-200);

@@ -1,40 +1,9 @@
-<template>
-  <div>
-    <setup title="Alert" compName="fAlert" />
-    <div class="h-4" />
-    <section class="space-y-32">
-      <div>
-        <f-alert v-model="showing" v-bind="alertProps[current]">
-          <p>This is the message text that can be short or a little bit long</p>
-          <div class="space-x-8">
-            <f-button small>Primary CTA</f-button>
-            <f-button small quiet>Secondary CTA</f-button>
-          </div>
-        </f-alert>
-      </div>
-      <div class="space-y-16">
-        <f-button utility small @click="showing = !showing">Toggle show/hide</f-button>
-        <f-select label="Alert type" v-model="current">
-          <option value="negative">Negative</option>
-          <option value="positive">Positive</option>
-          <option value="warning">Warning</option>
-          <option value="info">Info</option>
-        </f-select>
-      </div>
-    </section>
-
-    <section-header label="Documentation" />
-
-    <h4>Token</h4>
-    <show-token :token="token" />
-  </div>
-</template>
-
 <script setup>
-import { fAlert, fButton, fSelect } from '#components'
-import { ref } from 'vue'
-const randomElementFrom = arr => arr[Math.floor(Math.random()*arr.length)]
+import { fAlert, fButton } from '#components'
+import { radio, checkbox } from '#dev-util'
+import { reactive } from 'vue'
 
+const randomElementFrom = arr => arr[Math.floor(Math.random()*arr.length)]
 const sentences = [
   `there are zombies in mah Cheerios`,
   `there is peanut butter on the ceiling`,
@@ -42,32 +11,52 @@ const sentences = [
   `there are tiny robots in my socks`
 ]
 const sentence = randomElementFrom(sentences)
-const alertProps = {
-  negative: {
+const showState = reactive({ Show: true })
+const showControls = [{ name: 'Show', checkbox }]
+const variants = {
+  Negative: {
     negative: true,
     title: `Oh no ${sentence}!`
   },
-  positive: {
+  Positive: {
     positive: true,
     title: `Hooray ${sentence}!`
   },
-  warning: {
+  Warning: {
     warning: true,
     title: `Maybe ${sentence}?`
   },
-  info: {
+  Info: {
     info: true,
     title: `Just so you know, ${sentence}.`
   }
 }
-const current = ref('negative')
-const showing = ref(true)
-const token =
-`<f-alert v-model="showAlert" negative title="I am a title">
-  <p>I am an excellent message for the user.</p>
-  <div class="space-x-8">
-    <f-button small>Primary CTA</f-button>
-    <f-button small quiet>Secondary CTA</f-button>
-  </div>
-</f-alert>`
+const current = reactive({ active: 'Negative' })
+const variantControls = [
+  { name: 'Negative', radio },
+  { name: 'Positive', radio },
+  { name: 'Warning', radio },
+  { name: 'Info', radio },
+]
 </script>
+
+<template>
+  <div>
+    <component-title title="Alert" />
+
+    <token :state="[showState, current]" class="py-24">
+      <f-alert v-model="showState.Show" v-bind="variants[current.active]">
+        <p>This is the message text that can be short or a little bit long</p>
+        <div class="space-x-8">
+          <f-button small>Primary CTA</f-button>
+          <f-button small quiet>Secondary CTA</f-button>
+        </div>
+      </f-alert>
+    </token>
+
+    <controls class="flex" x>
+      <control label="Visibility" :controls="showControls" :state="showState" />
+      <control label="Variants" :controls="variantControls" :state="current" />
+    </controls>
+  </div>
+</template>
