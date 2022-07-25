@@ -44,7 +44,7 @@ const emit = defineEmits(['expand', 'collapse'])
 const slots = useSlots()
 
 const expanded = (props.modelValue === absentProp) ? ref(false) : createModel({ props, emit })
-const contentComponent = props.animated ? expandTransition : 'div'
+const contentComponent = computed(() => props.animated ? expandTransition : 'div')
 // fExpandTransition emits its own events and we just bubble them, but for a normal DOM element we need to create them
 if (!props.animated) {
   watch(expanded, async (isExpanded) => {

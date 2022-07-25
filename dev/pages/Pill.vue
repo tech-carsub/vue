@@ -1,19 +1,25 @@
-<template>
-  <div>
-    <setup title="Pill" comp-name="fPill" />
-
-    <div class="flex flex-wrap space-x-8">
-      <f-pill label="Example" suggestion />
-      <f-pill label="Example" suggestion can-close />
-      <f-pill label="Example" />
-      <f-pill label="Example" can-close />
-    </div>
-  </div>
-</template>
-
 <script setup>
-import { ref } from 'vue'
+import { reactive } from 'vue'
+import { checkbox, buildCheckboxState } from '#dev-util'
 import { fPill } from '#components'
 
-const model = ref(false)
+const modifierControls = [
+  { name: 'Suggestion', checkbox },
+  { name: 'Closeable', checkbox },
+]
+const modifiers = reactive(buildCheckboxState({ controls: modifierControls }))
 </script>
+
+<template>
+  <div>
+    <component-title title="Pill" />
+
+    <token :state="modifiers">
+      <f-pill label="Hello Fabric" :suggestion="modifiers.Suggestion" :canClose="modifiers.Closeable" />
+    </token>
+
+    <demo-controls>
+      <demo-control label="Modifiers" :controls="modifierControls" :state="modifiers" />
+    </demo-controls>
+  </div>
+</template>

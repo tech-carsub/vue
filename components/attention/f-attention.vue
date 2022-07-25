@@ -16,7 +16,7 @@ import { computePosition, flip, offset, shift, arrow } from '@floating-ui/dom'
 import { createModel, modelProps } from 'create-v-model'
 
 export default {
-  name: 'fAttentionItem',
+  name: 'fAttention',
   props: {
     ...attentionProps,
     ...modelProps({ modelDefault: absentProp }),
