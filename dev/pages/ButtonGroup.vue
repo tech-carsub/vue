@@ -1,48 +1,50 @@
+<script setup>
+import { ref, reactive } from 'vue'
+import { checkbox, radio, useIsActive, buildCheckboxState } from '#dev-util'
+import { fButtonGroup, fButtonGroupItem, fClickable } from '#components'
+
+const radioModel = ref('foo')
+const alert = () => window.alert('Hello Fabric!')
+
+const type = reactive({ active: 'Radio' })
+const active = useIsActive(type)
+const typeControls = [
+  { name: 'Radio', radio },
+  { name: 'Button', radio },
+]
+
+const modifierControls = [
+  { name: 'Outlined', checkbox },
+  { name: 'Raised', checkbox },
+  { name: 'Vertical', checkbox },
+]
+const modifiers = reactive(buildCheckboxState({ controls: modifierControls }))
+</script>
+
 <template>
   <div>
-    <setup title="ButtonGroup" comp-name="fButtonGroup, fButtonGroupItem" />
+    <component-title title="Button Group" />
 
-    <h5 class="mb-16">Button group with buttons</h5>
+    <token :state="[type, radioModel, modifiers]">
+      <f-button-group :outlined="modifiers.Outlined" :raised="modifiers.Raised" :vertical="modifiers.Vertical">
+        <f-button-group-item :selected="active('Radio') && radioModel === 'foo'">
+          <f-clickable v-if="active('Radio')" label radio v-model="radioModel" value="foo">Foo</f-clickable>
+          <f-clickable v-else label @click="alert">Foo</f-clickable>
+        </f-button-group-item>
+        <f-button-group-item :selected="active('Radio') && radioModel === 'bar'">
+          <f-clickable v-if="active('Radio')" label radio v-model="radioModel" value="bar">Bar</f-clickable>
+          <f-clickable v-else label @click="alert">Bar</f-clickable>
+        </f-button-group-item>
+        <f-button-group-item :selected="active('Radio') && radioModel === 'baz'">
+          <f-clickable v-if="active('Radio')" label radio v-model="radioModel" value="baz">Baz</f-clickable>
+          <f-clickable v-else label @click="alert">Baz</f-clickable>
+        </f-button-group-item>
+      </f-button-group>
+    </token>
 
-    <f-button-group :outlined="toggleOutline" :raised="toggleRaised" :vertical="toggleVertical">
-      <f-button-group-item>
-        <f-clickable label @click="alert">Foo</f-clickable>
-      </f-button-group-item>
-      <f-button-group-item :selected="toggleSelected">
-        <f-clickable label @click="alert">Bar</f-clickable>
-      </f-button-group-item>
-      <f-button-group-item>
-        <f-clickable label @click="alert">Baz</f-clickable>
-      </f-button-group-item>
-    </f-button-group>
-
-    <div class="pt-32 mb-48 flex gap-8" :class="{ '-mt-2': toggleOutline }">
-      <f-button utility @click="toggleOutline = !toggleOutline">{{ toggleOutline ? 'Remove' : 'Add' }} outline</f-button>
-      <f-button utility @click="toggleRaised = !toggleRaised">{{ toggleRaised ? 'Remove' : 'Add' }} shadow</f-button>
-      <f-button utility @click="toggleSelected = !toggleSelected">{{ toggleSelected ? 'Remove' : 'Add' }} selected-UI</f-button>
-      <f-button utility @click="toggleVertical = !toggleVertical">Make {{ toggleVertical ? 'horizontal' : 'vertical' }}</f-button>
-    </div>
-
-    <h5 class="mv-16">Button group with radios</h5>
-
-    <f-button-group outlined :vertical="toggleVertical">
-      <f-button-group-item :selected="radioModel === 'foo'">
-        <f-clickable label radio v-model="radioModel" value="foo">Foo</f-clickable>
-      </f-button-group-item>
-      <f-button-group-item :selected="radioModel === 'bar'">
-        <f-clickable label radio v-model="radioModel" value="bar">Bar</f-clickable>
-      </f-button-group-item>
-    </f-button-group>
+    <demo-controls y>
+      <demo-control label="Type" :controls="typeControls" :state="type" />
+      <demo-control label="Modifiers" :controls="modifierControls" :state="modifiers" />
+    </demo-controls>
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import { fButton, fButtonGroup, fButtonGroupItem, fClickable } from '#components'
-const toggleOutline = ref(false)
-const toggleRaised = ref(false)
-const toggleSelected = ref(false)
-const toggleVertical = ref(false)
-const alert = () => window.alert('Clicked!')
-const radioModel = ref('')
-</script>

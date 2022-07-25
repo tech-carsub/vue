@@ -18,7 +18,7 @@ const handleClick = () => alert('Hello Fabric!')
   <div>
     <component-title title="Box" />
 
-    <token class="py-24" :state="[state]">
+    <token :state="[state]">
       <f-box :bleed="state.Bleed" :bordered="state.Bordered" :info="state.Info" :neutral="state.Neutral" :class="[!(state.Info || state.Neutral) && 'bg-aqua-300']">
         <h3 v-if="!state.Clickable" class="h4">I am some content</h3>
         <f-clickable v-else @click="handleClick"><h3 class="h4 mb-0">I am some clickable content</h3></f-clickable>

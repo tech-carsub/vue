@@ -44,7 +44,7 @@ const variantControls = [
   <div>
     <component-title title="Alert" />
 
-    <token :state="[showState, current]" class="py-24">
+    <token :state="[showState, current]">
       <f-alert v-model="showState.Show" v-bind="variants[current.active]">
         <p>This is the message text that can be short or a little bit long</p>
         <div class="space-x-8">

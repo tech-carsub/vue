@@ -4,7 +4,7 @@ import Alert from '../pages/Alert.vue'
 import Box from '../pages/Box.vue'
 import Breadcrumbs from '../pages/Breadcrumbs.vue'
 import Button from '../pages/Button.vue'
-// import ButtonGroup from '../pages/ButtonGroup.vue'
+import ButtonGroup from '../pages/ButtonGroup.vue'
 // import Slider from '../pages/Slider.vue'
 // import Switch from '../pages/Switch.vue'
 // import Modal from '../pages/Modal.vue'
@@ -23,7 +23,7 @@ export const routes = [
   { path: '/box', component: Box, name: 'box' },
   { path: '/button', component: Button, name: 'button' },
   { path: '/breadcrumbs', component: Breadcrumbs, name: 'breadcrumbs' },
-  // { path: '/button-group', component: ButtonGroup, name: 'button-group' },
+  { path: '/button-group', component: ButtonGroup, name: 'button-group' },
   // { path: '/slider', component: Slider, name: 'slider' },
   // { path: '/switch', component: Switch, name: 'switch' },
   // { path: '/modal', component: Modal, name: 'modal' },

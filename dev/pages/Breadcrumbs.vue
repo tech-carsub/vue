@@ -6,7 +6,7 @@ import { fBreadcrumbs } from '#components'
   <div>
     <component-title title="Breadcrumbs" />
 
-    <token class="py-24">
+    <token>
       <f-breadcrumbs>
         <a href="#/foo">Foo</a>
         <a href="#/bar">Bar</a>

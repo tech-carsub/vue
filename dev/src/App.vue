@@ -16,6 +16,9 @@
   border: 1px solid var(--f-gray-200);
   position: relative;
 }
+.itsy-token {
+  padding: 24px 0;
+}
 @media (max-width: 640px) {
   .shiki {
     font-size: 12px;
