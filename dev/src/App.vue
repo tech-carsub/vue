@@ -1,55 +1,10 @@
 <script setup>
-import { fBox } from '#components'
-import SidebarLinks from './SidebarLinks.vue'
-
-const sidebarConfig = {
-  Actions: {
-    startOpen: true,
-    links: {
-      button: 'Button',
-      'button-group': 'Button Group',
-      pill: 'Pill'
-    }
-  },
-  Communication: {
-    startOpen: true,
-    links: {
-      alert: 'Alert',
-      attention: 'Attention',
-      modal: 'Modal',
-      steps: 'Steps'
-    }
-  },
-  Forms: {
-    startOpen: false,
-    links: {
-      input: 'Input',
-      select: 'Select',
-      slider: 'Slider',
-      textarea: 'Textarea',
-      toggle: 'Toggle'
-    }
-  },
-  Layout: {
-    startOpen: true,
-    links: {
-      box: 'Box',
-      card: 'Card',
-      expandable: 'Expandable',
-      tabs: 'Tabs'
-    }
-  }
-}
+import Sidebar from './Sidebar.vue'
 </script>
 
 <template>
   <div class="has-sidebar mt-32">
-    <aside class="sidebar fixed inset-0 bg-gray-100 border-r border-gray-200 divide-y divide-gray-200">
-      <f-box><h1 class="h4">Fabric Vue</h1></f-box>
-      <sidebar-links v-for="(group, groupName)  in sidebarConfig" :start-open="group.startOpen" :title="groupName">
-        <router-link v-for="(title, to) in group.links" :to="to">{{ title }}</router-link>
-      </sidebar-links>
-    </aside>
+    <sidebar />
     <main class="page-container">
       <div class="max-w-screen-md mx-auto">
         <router-view />
@@ -59,8 +14,14 @@ const sidebarConfig = {
 </template>
 
 <style scoped>
-a {
-  color: var(--f-gray-500);
+.has-sidebar {
+  padding-left: 320px;
+}
+@media (max-width: 640px) {
+  .has-sidebar {
+    padding-left: 0;
+    padding-top: 48px;
+  }
 }
 </style>
 
@@ -79,25 +40,12 @@ a {
 .itsy-token {
   padding: 24px 0;
 }
-.has-sidebar {
-  padding-left: 320px;
-}
-.sidebar {
-  width: 320px;
-}
 @media (max-width: 640px) {
   .shiki {
     font-size: 12px;
   }
   .controls label {
     font-size: 12px;
-  }
-  .has-sidebar {
-    padding-left: 0;
-  }
-  .sidebar {
-    transition: 0.3s ease;
-    transform: translate(-100%);
   }
 }
 code {
