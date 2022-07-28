@@ -50,7 +50,7 @@ const sidebarConfig = {
     <nav class="mobile-menu fixed top-0 left-0 right-0 bg-gray-100 border-b border-gray-200">
       <f-box class="flex justify-between">
         <h1 class="h4 mb-0">Fabric Vue</h1>
-        <button @click="expanded = !expanded" class="flex justify-center items-center w-24" type="button" aria-label="show mobile navigation" :aria-expanded="expanded" aria-controls="sidebar">
+        <button @click="expanded = !expanded" class="flex justify-center items-center w-24 transparent-tap" type="button" aria-label="show mobile navigation" :aria-expanded="expanded" aria-controls="sidebar">
           <span class="relative overflow-hidden w-16 h-14" :class="{ active: expanded }">
             <span class="top-bar absolute w-16 h-2 bg-gray-700 top-0 left-0" />
             <span class="middle-bar absolute w-16 h-2 bg-gray-700 top-6 left-0" />
@@ -80,6 +80,9 @@ a {
 }
 .mobile-menu {
   transform: translateY(-100%);
+}
+.transparent-tap {
+  -webkit-tap-highlight-color: transparent;
 }
 .top-bar, .middle-bar, .bottom-bar { transition: 0.3s ease; }
 .top-bar { transform: translate(4px); transform-origin: 9px 4px; }
