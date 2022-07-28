@@ -20,9 +20,8 @@
     "watch": "vitest watch",
     "build": "rm -rf dist && rollup -c",
     "publish:eik": "npx @eik/cli publish && npx @eik/cli pkg-alias",
-    "site": "npm run site:build && npm run site:cloud",
-    "site:build": "vite build dev",
-    "site:cloud": "cd dev/dist && cp index.html 200.html && cp index.html 404.html && cp ../CNAME .",
+    "site": "vite build dev --config ./vite.config.js",
+    "postsite": "cd dev/dist && cp index.html 200.html && cp index.html 404.html && cp ../CNAME .",
     "preversion": "npm run test && npx @eik/cli login && npm run build",
     "version": "npm publish",
     "postversion": "npm run publish:eik && git push --follow-tags"
