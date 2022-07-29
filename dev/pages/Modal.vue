@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { fModal } from '#components'
+import { modalShowing } from '../src/store.js'
 
 const heightToggle = ref(false)
 const demoStyles = computed(() => ({
@@ -10,10 +11,9 @@ const demoStyles = computed(() => ({
 }))
 const changeHeight = () => heightToggle.value = !heightToggle.value
 const show = ref(false)
-const model = ref(false)
 
 const showControl = [
-  { onClick: () => model.value = true, name: 'Go!', button: true }
+  { onClick: () => modalShowing.value = true, name: 'Go!', button: true }
 ]
 </script>
 
@@ -22,7 +22,7 @@ const showControl = [
     <component-title title="Modal" />
 
     <token>
-      <f-modal title="Hello Fabric!" :style="demoStyles" :left="show" :right="{ 'aria-label': 'Close' }" @dismiss="model = false" v-model="model" @right="model = false">
+      <f-modal title="Hello Fabric!" :style="demoStyles" :left="show" :right="{ 'aria-label': 'Close' }" @dismiss="modalShowing = false" v-model="modalShowing" @right="modalShowing = false">
         <div class="space-x-8">
           <button @click="changeHeight" class="button button--utility button--small mb-32">Modify height</button>
           <button @click="show = !show" class="button button--utility button--small mb-32">Toggle the back-button</button>
@@ -36,7 +36,7 @@ const showControl = [
           <p>Perpendicular to the square we stay in gold like Flair, escape from your dragon's lair in particular. The game of chess, is like a swordfight, you must think first before you move. Leave it up to me while I be livin' proof I smoke on the mic like smoking Joe Frazier, the hell raiser, raising hell with the flavor. Step through your section with the Force like Luke Skywalker, rhyme author, orchestrate mind torture. Feeling mad hostile, ran the apostle, flowing like Christ when I speak the gospel. Well I'm a sire, I set the microphone on fire, rap styles vary and carry like Mariah. I grew up on the crime side, the New York Times side, Stayin' alive was no jive.</p>
         </div>
         <template #footer>
-          <button class="button button--cta" @click="model = false">Click me</button>
+          <button class="button button--cta" @click="modalShowing = false">Click me</button>
         </template>
       </f-modal>
     </token>

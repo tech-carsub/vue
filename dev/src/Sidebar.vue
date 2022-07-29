@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { fBox } from '#components'
+import { modalShowing } from './store.js'
 import SidebarLinks from './SidebarLinks.vue'
 
 const expanded = ref(false)
@@ -59,7 +60,7 @@ const sidebarConfig = {
         </button>
       </f-box>
     </nav>
-    <aside id="sidebar" :class="{ expanded }" class="sidebar z-50 fixed inset-0 bg-gray-100 border-r border-gray-200 divide-y divide-gray-200">
+    <aside id="sidebar" :class="{ expanded, modalShowing }" class="sidebar z-50 fixed inset-0 bg-gray-100 border-r border-gray-200 divide-y divide-gray-200">
       <f-box><h1 class="h4">Fabric Vue</h1></f-box>
       <sidebar-links v-for="(group, groupName)  in sidebarConfig" :start-open="group.startOpen" :title="groupName">
         <router-link v-for="(title, to) in group.links" :to="to">{{ title }}</router-link>
@@ -83,6 +84,9 @@ a {
 }
 .transparent-tap {
   -webkit-tap-highlight-color: transparent;
+}
+.sidebar.modalShowing {
+  transform: translate(-100%);
 }
 .top-bar, .middle-bar, .bottom-bar { transition: 0.3s ease; }
 .top-bar { transform: translate(4px); transform-origin: 9px 4px; }
