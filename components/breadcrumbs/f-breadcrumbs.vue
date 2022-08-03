@@ -14,10 +14,14 @@ import { h, Fragment } from 'vue'
 import { interleave as coreInterleave } from '@fabric-ds/core/breadcrumbs'
 
 const separator = h('span', { ariaHidden: true, class: 'select-none' }, '/')
+
+const findChildren = vnodes => (vnodes[0].key && vnodes[0].key !== "_default") ? vnodes : findChildren(vnodes[0].children)
 const Breadcrumbify = (_, context) => {
   const slot = context.slots.default()
   // check if the default slot is using v-for or just normal elements
-  const arr = slot[0].type === Fragment ? slot[0].children : slot
+  let arr = slot[0].type === Fragment ? slot[0].children : slot
+  // if we only have one node, we might be at a v-for iteration case
+  if (arr.length === 1) arr = findChildren(arr)
   return coreInterleave(arr, separator)
 }
 
