@@ -15,7 +15,7 @@ import { interleave as coreInterleave } from '@fabric-ds/core/breadcrumbs'
 
 const separator = h('span', { ariaHidden: true, class: 'select-none' }, '/')
 
-const findChildren = vnodes => (vnodes[0].key && vnodes[0].key !== "_default") ? vnodes : findChildren(vnodes[0].children)
+const findChildren = vnodes => ((vnodes[0].key && vnodes.key !== "_default") || !vnodes[0].children) ? vnodes : findChildren(vnodes[0].children)
 const Breadcrumbify = (_, context) => {
   const slot = context.slots.default()
   // check if the default slot is using v-for or just normal elements
