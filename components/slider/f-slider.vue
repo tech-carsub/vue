@@ -97,10 +97,14 @@ export default {
       if (v.value === n) return
       v.value = n
     })
+
+    const clamp = (v, { min, max }) => Number.isFinite(parseFloat(v)) ? Math.min(Math.max(v, min), max) : min
     watch(() => props.modelValue, () => {
-      if (sliderPressed.value || (position.value === props.modelValue)) return
-      position.value = props.modelValue
-    })
+      // if the slider gets bad values, it shouldn't break the page by placing the thumb at an insane left/right value
+      if (props.modelValue > props.max || props.modelValue < props.min) position.value = clamp(props.modelValue, props)
+      else if (sliderPressed.value || (position.value === props.modelValue)) return
+      else position.value = props.modelValue
+    }, { immediate: true })
 
     return { c, aria, sliderLine, thumb, sliderActiveStyle, thumbStyles, handleClick, handleBlur, handleFocus, handleKeyDown, handleMouseDown, v }
   }

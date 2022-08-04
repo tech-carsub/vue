@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { fSlider, fInput } from '#components'
 
-const largeNumber = ref(3_000_000)
+const largeNumber = ref(30_000_000)
 </script>
 
 <template>
