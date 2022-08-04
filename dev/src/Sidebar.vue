@@ -20,6 +20,7 @@ const sidebarConfig = {
     links: {
       alert: 'Alert',
       attention: 'Attention',
+      breadcrumbs: 'Breadcrumbs',
       modal: 'Modal',
       steps: 'Steps'
     }

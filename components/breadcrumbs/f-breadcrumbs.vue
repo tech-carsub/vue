@@ -11,18 +11,16 @@
 
 <script>
 import { h, Fragment } from 'vue'
-import { interleave as coreInterleave } from '@fabric-ds/core/breadcrumbs'
+import { interleave } from '@fabric-ds/core/breadcrumbs'
 
-const separator = h('span', { ariaHidden: true, class: 'select-none' }, '/')
-
-const findChildren = vnodes => ((vnodes[0].key && vnodes.key !== "_default") || !vnodes[0].children) ? vnodes : findChildren(vnodes[0].children)
+export const fBreadcrumbSeparator = h('span', { ariaHidden: true, class: 'select-none' }, '/')
+const isFragment = vnode => vnode.type === Fragment
+const collectElements = (vnodes = []) => vnodes?.map(vnode => isFragment(vnode) ? collectElements(vnode.children) : vnode)
 const Breadcrumbify = (_, context) => {
   const slot = context.slots.default()
-  // check if the default slot is using v-for or just normal elements
-  let arr = slot[0].type === Fragment ? slot[0].children : slot
-  // if we only have one node, we might be at a v-for iteration case
-  if (arr.length === 1) arr = findChildren(arr)
-  return coreInterleave(arr, separator)
+  const vnodes = slot[0].children
+  const elements = collectElements(vnodes).flat(Infinity)
+  return interleave(elements, fBreadcrumbSeparator)
 }
 
 // because most of the logic is in Breadcrumbify
