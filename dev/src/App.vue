@@ -1,9 +1,11 @@
 <script setup>
 import Sidebar from './Sidebar.vue'
+import Search from './Search.vue'
 </script>
 
 <template>
   <div class="has-sidebar mt-32">
+    <search />
     <sidebar />
     <main class="page-container">
       <div class="max-w-screen-md mx-auto">

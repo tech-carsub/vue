@@ -3,48 +3,10 @@ import { ref } from 'vue'
 import { fBox } from '#components'
 import { modalShowing } from './store.js'
 import SidebarLinks from './SidebarLinks.vue'
+import { sidebarConfig } from './sidebar-config.js'
 
 const expanded = ref(false)
 
-const sidebarConfig = {
-  Actions: {
-    startOpen: true,
-    links: {
-      button: 'Button',
-      'button-group': 'Button Group',
-      pill: 'Pill'
-    }
-  },
-  Communication: {
-    startOpen: true,
-    links: {
-      alert: 'Alert',
-      attention: 'Attention',
-      breadcrumbs: 'Breadcrumbs',
-      modal: 'Modal',
-      steps: 'Steps'
-    }
-  },
-  Forms: {
-    startOpen: false,
-    links: {
-      input: 'Input',
-      select: 'Select',
-      slider: 'Slider',
-      textarea: 'Textarea',
-      toggle: 'Toggle'
-    }
-  },
-  Layout: {
-    startOpen: true,
-    links: {
-      box: 'Box',
-      card: 'Card',
-      expandable: 'Expandable',
-      tabs: 'Tabs'
-    }
-  }
-}
 </script>
 
 <template>
@@ -63,8 +25,8 @@ const sidebarConfig = {
     </nav>
     <aside id="sidebar" :class="{ expanded, modalShowing }" class="sidebar z-50 fixed inset-0 bg-gray-100 border-r border-gray-200 divide-y divide-gray-200">
       <f-box><h1 class="h4">Fabric Vue</h1></f-box>
-      <sidebar-links v-for="(group, groupName)  in sidebarConfig" :start-open="group.startOpen" :title="groupName">
-        <router-link v-for="(title, to) in group.links" :to="to">{{ title }}</router-link>
+      <sidebar-links v-for="group in sidebarConfig" :start-open="group.startOpen" :title="group.title">
+        <router-link v-for="link in group.links" :to="link.to">{{ link.title }}</router-link>
       </sidebar-links>
     </aside>
   </div>

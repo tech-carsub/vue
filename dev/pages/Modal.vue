@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { fModal } from '#components'
 import { modalShowing } from '../src/store.js'
 import ModalContent from './helpers/ModalContent.vue'
@@ -11,11 +11,14 @@ const demoStyles = computed(() => ({
   // '--f-modal-height': '100%'
 }))
 const changeHeight = () => heightToggle.value = !heightToggle.value
-const show = ref(false)
+const showLeft = ref(false)
+const showModal = ref(false)
 
 const showControl = [
-  { onClick: () => modalShowing.value = true, name: 'Go!', button: true }
+  { onClick: () => showModal.value = true, name: 'Go!', button: true }
 ]
+
+watch(showModal, (showing) => modalShowing.value = showing)
 </script>
 
 <template>
@@ -23,14 +26,14 @@ const showControl = [
     <component-title title="Modal" />
 
     <token>
-      <f-modal title="Hello Fabric!" :style="demoStyles" :left="show" :right="{ 'aria-label': 'Close' }" @dismiss="modalShowing = false" v-model="modalShowing" @right="modalShowing = false">
+      <f-modal title="Hello Fabric!" :style="demoStyles" :left="showLeft" :right="{ 'aria-label': 'Close' }" @dismiss="showModal = false" v-model="showModal" @right="showModal = false">
         <div class="space-x-8">
           <button @click="changeHeight" class="button button--utility button--small mb-32">Modify height</button>
-          <button @click="show = !show" class="button button--utility button--small mb-32">Toggle the back-button</button>
+          <button @click="showLeft = !showLeft" class="button button--utility button--small mb-32">Toggle the back-button</button>
         </div>
         <modal-content />
         <template #footer>
-          <button class="button button--cta" @click="modalShowing = false">Click me</button>
+          <button class="button button--cta" @click="showModal = false">Click me</button>
         </template>
       </f-modal>
     </token>
