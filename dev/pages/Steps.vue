@@ -25,7 +25,7 @@ const stepControl = [
     <component-title title="Steps" />
 
     <token>
-      <f-steps class="mb-32" :right="modifiers.Right" :horizontal="modifiers.Horizontal">
+      <f-steps :right="modifiers.Right" :horizontal="modifiers.Horizontal">
         <f-step :active="current === 1" :complete="current > 1">
           <p class="font-bold">Step 1</p>
           <p>Text describing step 1.</p>
