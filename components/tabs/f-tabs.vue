@@ -14,7 +14,7 @@ import { modelProps, createModel } from 'create-v-model'
 import debounce from 'femtobounce'
 import { useKeydownHandler } from './util'
 
-const useGetActiveTab = (tabContainer) => () => tabContainer.value.querySelector('.active-tab')
+const useGetActiveTab = (tabContainer) => () => tabContainer.value?.querySelector('.active-tab')
 const getChildren = slot => slot[0].type === Fragment ? slot[0].children : slot
 
 export default {
