@@ -28,7 +28,7 @@ watch(() => variants.active, changeToggleModel)
   <div>
     <component-title title="Toggle" />
 
-    <token :state="variants">
+    <token :state="[variants, toggleModel]">
       <f-toggle :radio="active('Radio')" :checkbox="active('Checkbox')" v-model="toggleModel" label="A very toggly label" :toggles="toggles" />
     </token>
 

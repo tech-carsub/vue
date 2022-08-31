@@ -9,7 +9,7 @@ const selectModel = ref('')
   <div>
     <component-title title="Select" />
 
-    <token>
+    <token :state="selectModel">
       <f-select v-model="selectModel" label="A useful and informative label">
         <option disabled selected value="">Pick something</option>
         <option value="foo">Foo</option>

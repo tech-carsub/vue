@@ -9,7 +9,7 @@ const model = ref('')
   <div>
     <component-title title="Textarea" />
 
-    <token>
+    <token :state="model">
       <f-textarea v-model="model" label="Such area, much text" />
     </token>
   </div>
