@@ -1,7 +1,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { checkbox, buildCheckboxState } from '#dev-util'
-import { fStep, fSteps, fButtonGroup, fButtonGroupItem, fClickable } from '#components'
+import { fStep, fSteps } from '#components'
 
 const modifierControls = [
   { name: 'Horizontal', checkbox },
@@ -24,7 +24,7 @@ const stepControl = [
   <div>
     <component-title title="Steps" />
 
-    <token>
+    <token :state="[modifiers, current]">
       <f-steps :right="modifiers.Right" :horizontal="modifiers.Horizontal">
         <f-step :active="current === 1" :complete="current > 1">
           <p class="font-bold">Step 1</p>
