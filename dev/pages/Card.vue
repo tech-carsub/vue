@@ -24,7 +24,7 @@ const foo = ref('')
       </div>
     </token>
 
-    <token>
+    <token :state="foo">
       <div class="grid grid-cols-2 gap-16">
         <f-card flat class="py-4 px-12 flex items-center" :selected="foo === 'foo'">
           <f-dead-toggle radio v-model="foo" value="foo" />
