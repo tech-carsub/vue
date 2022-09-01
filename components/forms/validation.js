@@ -31,9 +31,9 @@ export const createValidationCollector = () => {
 
   watch(childrenShouldValidate, () => validationElements.value.forEach(e => e.shouldValidate = childrenShouldValidate.value))
 
-  const collectionAttrs = reactive({ registerValidation, unregisterValidation, validationElements, childrenShouldValidate, allChildrenValid, valid: allChildrenValid, completed, validate })
-  provide(collectionKey, collectionAttrs)
-  return toRefs(collectionAttrs)
+  const collectionAttrs = { registerValidation, unregisterValidation, validationElements, childrenShouldValidate, allChildrenValid, valid: allChildrenValid, completed, validate }
+  provide(collectionKey, reactive(collectionAttrs))
+  return collectionAttrs
 }
 
 export const createValidation = (props) => {
