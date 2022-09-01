@@ -1,4 +1,4 @@
-import { ref, toRefs, reactive, computed, watch, provide, inject, onBeforeUnmount } from 'vue'
+import { ref, reactive, computed, watch, provide, inject, onBeforeUnmount } from 'vue'
 
 export const defaultValid = { valid: true }
 export const defaultInvalid = { valid: false, hint: 'Må fylles ut' }
