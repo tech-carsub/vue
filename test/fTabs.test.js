@@ -1,4 +1,4 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fTabs, fTab, fTabPanel } from '#components'
 import { ref } from 'vue'
@@ -8,7 +8,7 @@ describe('tabs', () => {
     assert.ok(comp.name)
   })
 
-  it('renders', async () => {
+  test('renders', async () => {
     const model = ref('foo')
     const TabFixture = {
       template: `

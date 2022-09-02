@@ -1,11 +1,11 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fSlider } from '#components'
 
 describe('slider', () => {
   assert.ok(fSlider.name)
 
-  it('renders', () => {
+  test('renders', () => {
     const wrapper = mount(fSlider, {
       props: { modelValue: 50 }
     })

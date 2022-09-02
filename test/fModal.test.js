@@ -1,4 +1,4 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fModal } from '#components'
 import { ref, nextTick } from 'vue'
@@ -6,13 +6,13 @@ import { ref, nextTick } from 'vue'
 describe('modal', () => {
   assert.ok(fModal.name)
 
-  it('can mount expanded', async () => {
+  test('can mount expanded', async () => {
     const defaultSlot = '<h1>Hello Fabric</h1>'
     const wrapper = mount(fModal, { props: { modelValue: true }, slots: { default: defaultSlot } })
     await nextTick() // have to wait for the modal to mount/animate
     assert.equal(wrapper.text(), 'Hello Fabric')
   })
-  it('can show/hide', async () => {
+  test('can show/hide', async () => {
     const model = ref(false)
     const ModalFixture = {
       template: `
@@ -33,13 +33,13 @@ describe('modal', () => {
     assert.ok(wrapper.find('[data-test="backdrop"]').exists())
     assert.ok(wrapper.find('#f-modal-title').exists())
   })
-  it('has a title', async () => {
+  test('has a title', async () => {
     const defaultSlot = '<h1>Hello Fabric</h1>'
     const wrapper = mount(fModal, { props: { modelValue: true, title: 'OMG' }, slots: { default: defaultSlot } })
     await nextTick() // have to wait for the modal to mount/animate
     assert.include(wrapper.text(), 'OMG')
   })
-  it('has a footer', async () => {
+  test('has a footer', async () => {
     const defaultSlot = '<h1>Hello Fabric</h1>'
     const footerSlot = '<h1>Goodbye Fabric</h1>'
     const wrapper = mount(fModal, { props: { modelValue: true }, slots: { default: defaultSlot, footer: footerSlot } })
@@ -47,7 +47,7 @@ describe('modal', () => {
     assert.include(wrapper.text(), 'Hello Fabric')
     assert.include(wrapper.text(), 'Goodbye Fabric')
   })
-  it('left and right are toggleable', async () => {
+  test('left and right are toggleable', async () => {
     const defaultSlot = '<h1>Hello Fabric</h1>'
     const wrapper = mount(fModal, { props: { modelValue: true }, slots: { default: defaultSlot } })
     await nextTick()
@@ -56,7 +56,7 @@ describe('modal', () => {
     const right = wrapper.find('button[aria-label="Lukk"]').exists()
     assert.notOk(right)
   })
-  it('has sane defaults for left and right', async () => {
+  test('has sane defaults for left and right', async () => {
     const defaultSlot = '<h1>Hello Fabric</h1>'
     const wrapper = mount(fModal, { props: { modelValue: true, left: true, right: true }, slots: { default: defaultSlot } })
     await nextTick()

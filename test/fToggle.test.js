@@ -1,11 +1,11 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fToggle } from '#components'
 
 describe('toggle', () => {
   assert.ok(fToggle.name)
 
-  it('renders - radio', () => {
+  test('renders - radio', () => {
     const toggles = [
       { value: 'foo', label: 'Foo' },
       { value: 'bar', label: 'Bar' },
@@ -18,7 +18,7 @@ describe('toggle', () => {
       if (el.element.value === 'foo') assert.include(el.attributes(), { checked: '' })
     }
   })
-  it('renders - checkbox', () => {
+  test('renders - checkbox', () => {
     const toggles = [
       { value: 'foo', label: 'Foo' },
       { value: 'bar', label: 'Bar' },

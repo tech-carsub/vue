@@ -1,17 +1,17 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { id, absentProp, installer } from '#util'
 
 describe('utilities', () => {
-  it('id', () => {
+  test('id', () => {
     const generatedId = id.default()
     assert.include(generatedId, 'f-')
     assert.match(generatedId, /f-.+-.+-.+-.+/)
     assert.notEqual(id.default(), id.default())
   })
-  it('absentProp', () => {
+  test('absentProp', () => {
     assert.equal(typeof absentProp, 'symbol')
   })
-  it('installer', () => {
+  test('installer', () => {
     const components = {}
     const fakeApp = {
       component(name, comp) {

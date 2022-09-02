@@ -1,11 +1,11 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fBreadcrumbs } from '#components'
 
 describe('breadcrumbs', () => {
   assert.ok(fBreadcrumbs.name)
 
-  it('normal', () => {
+  test('normal', () => {
     const defaultSlot = [
       `<a href="#/foo">Foo</a>`,
       `<a href="#/bar">Bar</a>`,
@@ -17,7 +17,7 @@ describe('breadcrumbs', () => {
     assert.include(wrapper.html(), 'class="select-none"')
     assert.ok(html.attributes()['aria-label'])
   })
-  it('v-for', () => {
+  test('v-for', () => {
     const BreadcrumbFixture = {
       template: `
         <f-breadcrumbs>

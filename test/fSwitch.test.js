@@ -1,4 +1,4 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fSwitch } from '#components'
 import { ref, nextTick } from 'vue'
@@ -6,7 +6,7 @@ import { ref, nextTick } from 'vue'
 describe('switch', () => {
   assert.ok(fSwitch.name)
 
-  it('renders', async () => {
+  test('renders', async () => {
     const model = ref(false)
     const SwitchFixture = {
       template: `

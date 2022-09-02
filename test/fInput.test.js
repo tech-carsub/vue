@@ -1,11 +1,11 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fInput } from '#components'
 
 describe('input', () => {
   assert.ok(fInput.name)
 
-  it('renders', () => {
+  test('renders', () => {
     const inputValue = 'Hello Fabric'
     const wrapper = mount(fInput, {
       props: { modelValue: inputValue }
@@ -13,7 +13,7 @@ describe('input', () => {
     const inputEl = wrapper.get('input')
     assert.equal(inputEl.element.value, inputValue)
   })
-  it('prefix/suffix', () => {
+  test('prefix/suffix', () => {
     const wrapper = mount(fInput, {
       slots: {
         prefix: '<h1>Hello</h1>',

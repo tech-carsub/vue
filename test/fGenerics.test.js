@@ -1,4 +1,4 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fClickable, fDeadToggle, fExpandTransition, fToggleItem } from '#components'
 
@@ -7,19 +7,19 @@ describe('generics', () => {
     assert.ok(comp.name)
   })
 
-  it('f-clickable - as a button', () => {
+  test('f-clickable - as a button', () => {
     const wrapper = mount(fClickable)
     const html = wrapper.get('button')
     assert.ok(html.html())
     assert.notOk(html.attributes('href'))
   })
-  it('f-clickable - as an anchor', () => {
+  test('f-clickable - as an anchor', () => {
     const wrapper = mount(fClickable, { props: { href: '#' } })
     const html = wrapper.get('a')
     assert.ok(html.html())
     assert.ok(html.attributes('href'))
   })
-  it('f-clickable - as a toggle', () => {
+  test('f-clickable - as a toggle', () => {
     const wrapper = mount(fClickable, {
       slots: { default: 'bar' },
       props: { radio: true },
@@ -31,7 +31,7 @@ describe('generics', () => {
     assert.ok(input.html())
     assert.equal(input.attributes('value'), 'foo')
   })
-  it('f-dead-toggle', () => {
+  test('f-dead-toggle', () => {
     const wrapper = mount(fDeadToggle, { props: { radio: true } })
     assert.ok(wrapper.classes().includes('pointer-events-none'))
     assert.equal(wrapper.attributes('aria-hidden'), 'true')
@@ -41,7 +41,7 @@ describe('generics', () => {
     assert.equal(inputEl.attributes('type'), 'radio')
     assert.ok(wrapper.get('label').exists)
   })
-  it('f-toggle-item - label prop', () => {
+  test('f-toggle-item - label prop', () => {
     const text = 'Hello Fabric'
     const wrapperLabelProp = mount(fToggleItem, {
       props: { label: `<h1>${text}</h1>` },

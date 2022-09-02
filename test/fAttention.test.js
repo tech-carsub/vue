@@ -1,4 +1,4 @@
-import { describe, it, assert, afterEach } from 'vitest'
+import { describe, test, assert, afterEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fAttention } from '#components'
 import { ref, nextTick } from 'vue'
@@ -9,7 +9,7 @@ afterEach(() => { document.body.innerHTML = '' })
 describe('attention', () => {
   assert.ok(fAttention.name)
 
-  it('callout', () => {
+  test('callout', () => {
     const defaultSlot = '<h5>Hello Fabric</h5>'
     const wrapper = mount(fAttention, {
       props: { callout: true, modelValue: true },
@@ -18,7 +18,7 @@ describe('attention', () => {
     const html = wrapper.get('[data-test="wrapper"]')
     assert.include(html.classes().join(' '), 'bg-green')
   })
-  it('show/hide callout', async () => {
+  test('show/hide callout', async () => {
     const model = ref(false)
     const CalloutFixture = {
       template: `

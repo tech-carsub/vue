@@ -1,4 +1,4 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fButtonGroup, fButtonGroupItem, fClickable } from '#components'
 
@@ -6,7 +6,7 @@ describe('button group', () => {
   assert.ok(fButtonGroup.name)
   assert.ok(fButtonGroupItem.name)
 
-  it('works', () => {
+  test('works', () => {
     const ButtonGroupFixture = {
       template: `
         <f-button-group outlined>

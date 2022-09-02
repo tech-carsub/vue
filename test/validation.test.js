@@ -1,4 +1,4 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createValidationCollector, createValidation, defaultInvalid } from '#components'
 import { reactive, nextTick } from 'vue'
@@ -8,13 +8,13 @@ const lessThanTen = v => v < 10 || { valid: false, hint: invalidHint }
 const _Fixture = (setup) => ({ template: '<slot />', setup })
 
 describe('validation', () => {
-  it('valid', () => {
+  test('valid', () => {
     mount(_Fixture(() => {
       const valid = createValidation({})
       assert.ok(valid.valid.value)
     }))
   })
-  it('invalid', () => {
+  test('invalid', () => {
     mount(_Fixture(() => {
       const invalid = createValidation({
         rules: [() => ({ valid: false, hint: invalidHint })]
@@ -27,7 +27,7 @@ describe('validation', () => {
     }))
   })
 
-  it('dynamic', () => {
+  test('dynamic', () => {
     mount(_Fixture(() => {
       const props = reactive({ modelValue: 10, rules: [lessThanTen] })
       const element = createValidation(props)
@@ -37,7 +37,7 @@ describe('validation', () => {
     }))
   })
 
-  it('display states', () => {
+  test('display states', () => {
     mount(_Fixture(() => {
       const props = reactive({ modelValue: 10, rules: [lessThanTen] })
       const element = createValidation(props)
@@ -55,7 +55,7 @@ describe('validation', () => {
     }))
   })
 
-  it('required-flag', () => {
+  test('required-flag', () => {
     mount(_Fixture(() => {
       const props = reactive({ modelValue: null, required: true })
       const element = createValidation(props)
@@ -68,7 +68,7 @@ describe('validation', () => {
     }))
   })
 
-  it('validation - required-function', () => {
+  test('validation - required-function', () => {
     mount(_Fixture(() => {
       const props = reactive({ modelValue: 10, required: lessThanTen })
       const element = createValidation(props)
@@ -79,7 +79,7 @@ describe('validation', () => {
     }))
   })
 
-  it('collector - validate', () => {
+  test('collector - validate', () => {
     mount(_Fixture(() => {
       const collector = createValidationCollector()
       const propsA = reactive({ modelValue: 10, rules: [lessThanTen] })
@@ -101,7 +101,7 @@ describe('validation', () => {
     }))
   })
 
-  it('collector - sets shouldValidate on registration', async () => {
+  test('collector - sets shouldValidate on registration', async () => {
     mount(_Fixture(() => {
       const collector = createValidationCollector()
       const propsA = reactive({ modelValue: 10, rules: [lessThanTen] })
@@ -115,7 +115,7 @@ describe('validation', () => {
     }))
   })
 
-  it('collector - registration', async () => {
+  test('collector - registration', async () => {
     mount(_Fixture(() => {
       const collector = createValidationCollector()
       const propsA = reactive({ modelValue: 10, rules: [lessThanTen] })

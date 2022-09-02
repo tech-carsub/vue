@@ -1,4 +1,4 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fAlert } from '#components'
 import { ref, nextTick } from 'vue'
@@ -6,7 +6,7 @@ import { ref, nextTick } from 'vue'
 describe('alert', () => {
   assert.ok(fAlert.name)
 
-  it('alerts', () => {
+  test('alerts', () => {
     const title = 'A test alert'
     const defaultSlot = '<h5>Hello Fabric</h5>'
     const wrapper = mount(fAlert, {
@@ -20,7 +20,7 @@ describe('alert', () => {
     assert.include(wrapper.html(), '<svg ')
     assert.include(wrapperHtml.classes().join(' '), 'bg-green')
   })
-  it('show/hide', async () => {
+  test('show/hide', async () => {
     const model = ref(false)
     const AlertFixture = {
       template: `

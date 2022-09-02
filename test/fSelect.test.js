@@ -1,4 +1,4 @@
-import { describe, it, assert } from 'vitest'
+import { describe, test, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fSelect } from '#components'
 
@@ -6,7 +6,7 @@ describe('select', () => {
   assert.ok(fSelect.name)
 
   // NOTE: bug in happy-dom + test-utils
-  it.todo('renders', () => {
+  test.todo('renders', () => {
     const wrapper = mount(fSelect, {
       props: { modelValue: 'foo' },
       slots: { default: `
