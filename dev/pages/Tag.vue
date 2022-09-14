@@ -44,7 +44,7 @@ watch(() => type.active, (t) => {
     <component-title title="Tag" />
 
     <token :state="[type, side, color]">
-      <f-tag :primary="activeType('Primary')" :secondary="activeType('Secondary')" :left="side.Left" :right="side.Right" :info="activeColor('Info')" :success="activeColor('Success')" :warning="activeColor('Warning')" :error="activeColor('Error')" :disabled="activeColor('Disabled')" :sponsored="activeColor('Sponsored')">
+      <f-tag class="text-14" :primary="activeType('Primary')" :secondary="activeType('Secondary')" :left="side.Left" :right="side.Right" :info="activeColor('Info')" :success="activeColor('Success')" :warning="activeColor('Warning')" :error="activeColor('Error')" :disabled="activeColor('Disabled')" :sponsored="activeColor('Sponsored')">
         Hello Fabric
       </f-tag>
     </token>

@@ -28,6 +28,7 @@ const props = defineProps({
 const baseClasses = computed(() => ({
   [c.base]: true,
   [c.neutral]: !props.primary,
+  ['rounded-full']: !props.primary,
   ['rounded-tr-0 rounded-bl-0']: props.left,
   ['rounded-tl-0 rounded-br-0']: props.right,
   [c.info]: props.info,

@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { onMounted } from 'vue'
 import { suffix as c } from '@fabric-ds/css/component-classes'
 
 export default {
@@ -16,6 +17,11 @@ export default {
     search: Boolean,
     label: String
   },
-  setup: () => ({ c })
+  setup: () => {
+    onMounted(() => {
+      console.warn('f-suffix is deprecated and will be removed in a future version, please switch to f-affix')
+    })
+    return { c }
+  }
 }
 </script>
