@@ -16,7 +16,8 @@ export const sidebarConfig = [
       { to: 'attention', title: 'Attention' },
       { to: 'breadcrumbs', title: 'Breadcrumbs' },
       { to: 'modal', title: 'Modal' },
-      { to: 'steps', title: 'Steps' }
+      { to: 'steps', title: 'Steps' },
+      { to: 'tag', title: 'Tag' }
   ]
   },
   {

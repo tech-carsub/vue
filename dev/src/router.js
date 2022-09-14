@@ -16,6 +16,7 @@ import Slider from '../pages/Slider.vue'
 import Steps from '../pages/Steps.vue'
 import Switch from '../pages/Switch.vue'
 import Tabs from '../pages/Tabs.vue'
+import Tag from '../pages/Tag.vue'
 import Textarea from '../pages/Textarea.vue'
 import Toggle from '../pages/Toggle.vue'
 // import Forms from '../pages/Forms.vue'
@@ -38,6 +39,7 @@ export const routes = [
   { path: '/steps', component: Steps, name: 'steps' },
   { path: '/switch', component: Switch, name: 'switch' },
   { path: '/tabs', component: Tabs, name: 'tabs' },
+  { path: '/tag', component: Tag, name: 'tag' },
   { path: '/textarea', component: Textarea, name: 'textarea' },
   { path: '/toggle', component: Toggle, name: 'toggle' },
   // { path: '/forms', component: Forms, name: 'forms' },
