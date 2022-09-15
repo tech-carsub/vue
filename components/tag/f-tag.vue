@@ -17,8 +17,10 @@ const props = defineProps({
     type: Boolean,
     required: true
   },
-  left: Boolean,
-  right: Boolean,
+  topLeft: Boolean,
+  topRight: Boolean,
+  bottomLeft: Boolean,
+  bottomRight: Boolean,
   info: Boolean,
   success: Boolean,
   warning: Boolean,
@@ -30,8 +32,8 @@ const props = defineProps({
 
 const baseClasses = computed(() => ({
   [c.base]: props.primary,
-  ['rounded-tr-0 rounded-bl-0']: props.left,
-  ['rounded-tl-0 rounded-br-0']: props.right,
+  ['rounded-tr-0 rounded-bl-0']: props.topLeft || props.bottomRight,
+  ['rounded-tl-0 rounded-br-0']: props.topRight || props.bottomLeft,
   [c.info]: props.info,
   [c.success]: props.success,
   [c.warning]: props.warning,

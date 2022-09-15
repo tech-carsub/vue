@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
-import { fTag, fExpandable } from '#components'
+import { fTag } from '#components'
 import { checkbox, radio, useIsActive, buildCheckboxState } from '#dev-util'
 
 const colorControls = [
@@ -15,8 +15,10 @@ const color = reactive({ active: 'Info' })
 const activeColor = useIsActive(color)
 
 const sideControls = [
-  { name: 'Left', checkbox },
-  { name: 'Right', checkbox },
+  { name: 'Top-left', checkbox },
+  { name: 'Top-right', checkbox },
+  { name: 'Bottom-left', checkbox },
+  { name: 'Bottom-right', checkbox },
 ]
 const side = reactive(buildCheckboxState({ controls: sideControls }))
 </script>
@@ -26,7 +28,7 @@ const side = reactive(buildCheckboxState({ controls: sideControls }))
     <component-title title="Tag" />
 
     <token :state="[side, color]">
-      <f-tag class="text-14" primary :left="side.Left" :right="side.Right" :info="activeColor('Info')" :success="activeColor('Success')" :warning="activeColor('Warning')" :error="activeColor('Error')" :disabled="activeColor('Disabled')" :sponsored="activeColor('Sponsored')">
+      <f-tag class="text-14" primary :topLeft="side['Top-left']" :topRight="side['Top-right']" :bottomLeft="side['Bottom-left']" :bottomRight="side['Bottom-right']" :info="activeColor('Info')" :success="activeColor('Success')" :warning="activeColor('Warning')" :error="activeColor('Error')" :disabled="activeColor('Disabled')" :sponsored="activeColor('Sponsored')">
         Hello Fabric
       </f-tag>
     </token>
