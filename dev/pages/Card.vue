@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { fCard, fDeadToggle, fClickable } from '#components'
+import { fCard, fDeadToggle, fClickable, fTag } from '#components'
 
 const selected = ref(false)
 const foo = ref('')
@@ -14,7 +14,7 @@ const foo = ref('')
       <div class="w-1/2">
         <f-card :selected="selected">
           <img class="h-144 w-full object-cover" src="https://source.unsplash.com/random/600x600" />
-          <p class="absolute top-12 left-12 bg-aqua-200 p-4 rounded-4 text-12">Ukens bolig</p>
+          <f-tag top-left primary sponsored class="absolute top-0 left-0 text-14">Ukens bolig</f-tag>
           <div class="p-16">
             <p class="text-12 text-gray-300">DNB Eiendom</p>
             <p><f-clickable @click="selected = !selected" class="text-left">Stilfull og gjennomgående 3-roms m/balkong. Oppusset i 2019. Inkl. bl.a. vv/fyring.</f-clickable></p>
