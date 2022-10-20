@@ -16,6 +16,7 @@ const attrs = useAttrs()
 const props = defineProps({
   primary: Boolean,
   secondary: Boolean,
+  tertiary: Boolean,
   negative: Boolean,
   utility: Boolean,
   quiet: Boolean,

@@ -1,7 +1,7 @@
 {
-  "name": "@fabric-ds/vue",
-  "version": "0.12.6",
-  "description": "Fabric components for Vue 3",
+  "name": "@honk-ds/vue",
+  "version": "0.0.7",
+  "description": "Honk fabric components for Vue 3",
   "type": "module",
   "exports": {
     ".": "./dist/fabric-vue.js",
@@ -34,6 +34,7 @@
     "@fabric-ds/css": "^1.1.5",
     "@finn-no/dom-focus-lock-fixed": "^1.0.6",
     "@floating-ui/dom": "^0.5.3",
+    "@honk-ds/css": "^0.0.12",
     "create-v-model": "^2.1.2",
     "element-collapse": "^1.1.0",
     "femtobounce": "^1.0.0",

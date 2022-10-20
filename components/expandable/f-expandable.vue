@@ -2,7 +2,7 @@
   <component :is="as" :class="wrapperClasses" >
     <button v-if="hasTitle" type="button" :aria-expanded="expanded" :class="buttonClasses" @click="expanded = !expanded">
       <slot name="title" :expanded="expanded" />
-      <span class="h4" v-if="title">{{ title }}</span>
+      <span class="h4 pr-24" v-if="title">{{ title }}</span>
       <div :class="chevronClasses" v-if="chevron">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 5.5L8 11l5.5-5.5"/></svg>
       </div>
@@ -26,7 +26,7 @@ import { ref, computed, watch, nextTick, useSlots } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import { absentProp } from '#util'
 import { fExpandTransition as expandTransition } from '#generics'
-import { expandable as c, box } from '@fabric-ds/css/component-classes'
+import { expandable as c, box } from '@honk-ds/css/component-classes'
 
 const props = defineProps({
   title: String,

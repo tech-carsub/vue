@@ -5,9 +5,12 @@
     <div class="space-x-16">
       <f-button primary label="Click me!" />
       <f-button secondary>Click me!</f-button>
+      <f-button tertiary>Click me!</f-button>
       <f-button quiet>Click me!</f-button>
       <f-button secondary quiet small label="Click me!" />
+      <f-button tertiary quiet small label="Click me!" />
       <f-button loading>Click me!</f-button>
+      <f-button tertiary>Tertiary</f-button>
     </div>
 
     <section-header label="Documentation" />
@@ -55,6 +58,13 @@
       </tr>
       <tr>
         <td>secondary</td>
+        <td>
+          <div>quiet</div>
+          <div>small</div>
+        </td>
+      </tr>
+      <tr>
+        <td>tertiary</td>
         <td>
           <div>quiet</div>
           <div>small</div>
