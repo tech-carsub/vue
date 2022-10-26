@@ -1,7 +1,7 @@
 import { describe, it, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fBox } from '#components'
-import { box as boxClasses } from '@fabric-ds/css/component-classes'
+import { box as boxClasses } from '@honk-ds/css/component-classes'
 
 describe('box', () => {
   assert.ok(fBox.name)

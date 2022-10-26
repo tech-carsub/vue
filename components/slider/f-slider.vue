@@ -21,7 +21,7 @@
 <script>
 import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
-import { slider as c } from '@fabric-ds/css/component-classes'
+import { slider as c } from '@honk-ds/css/component-classes'
 import { useDimensions, createHandlers } from '@fabric-ds/core/slider'
 
 export default {

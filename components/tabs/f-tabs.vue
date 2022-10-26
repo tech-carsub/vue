@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { tabs as c } from '@fabric-ds/css/component-classes'
+import { tabs as c } from '@honk-ds/css/component-classes'
 import { provide, computed, ref, toRef, watch, nextTick, onMounted, Fragment } from 'vue'
 import { modelProps, createModel } from 'create-v-model'
 import debounce from 'femtobounce'

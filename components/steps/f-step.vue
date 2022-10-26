@@ -46,7 +46,7 @@
 
 <script>
 import { inject } from 'vue'
-import { step as c } from '@fabric-ds/css/component-classes'
+import { step as c } from '@honk-ds/css/component-classes'
 
 export default {
   name: 'fStep',

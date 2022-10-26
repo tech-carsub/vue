@@ -10,7 +10,7 @@ export default { name: 'fCard' }
 </script>
 
 <script setup>
-import { card as c } from '@fabric-ds/css/component-classes'
+import { card as c } from '@honk-ds/css/component-classes'
 import { computed } from 'vue'
 
 const props = defineProps({

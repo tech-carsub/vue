@@ -9,7 +9,7 @@ export default { name: 'fBox' }
 </script>
 
 <script setup>
-import { box as c } from '@fabric-ds/css/component-classes'
+import { box as c } from '@honk-ds/css/component-classes'
 import { computed } from 'vue'
 
 const props = defineProps({

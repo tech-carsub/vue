@@ -1,7 +1,7 @@
 import { describe, it, assert } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { fCard } from '#components'
-import { card as cardClasses } from '@fabric-ds/css/component-classes'
+import { card as cardClasses } from '@honk-ds/css/component-classes'
 
 describe('card', () => {
   assert.ok(fCard.name)

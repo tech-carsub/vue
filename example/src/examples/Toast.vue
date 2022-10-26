@@ -102,8 +102,8 @@
 
 <script>
 import { ref, computed } from 'vue'
-import { fToggle } from '@fabric-ds/vue-forms'
-import { fToast, makeToast } from '@fabric-ds/vue-toast'
+import { fToggle } from '@honk-ds/vue-forms'
+import { fToast, makeToast } from '@honk-ds/vue-toast'
 
 const sleep = n => new Promise(r => setTimeout(r, n))
 function getRandomInt(min, max) {

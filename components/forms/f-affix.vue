@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { suffix, prefix } from '@fabric-ds/css/component-classes'
+import { suffix, prefix } from '@honk-ds/css/component-classes'
 import { computed } from 'vue'
 
 export default {

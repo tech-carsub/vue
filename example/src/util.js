@@ -11,7 +11,7 @@ export const VariantHeading = (props) => h('h4', {
 const headerClasses = { class: 'h3 mb-32 mt-64 border-b-2  pb-8' }
 export const SectionHeader = (props) =>  h('h3', headerClasses, props.label)
 export const ExampleHeader = (props) =>  h('h3', headerClasses,
-  h('a', { class: 'text-gray-700', href: `https://github.com/fabric-ds/vue/tree/main/example/src/examples/${props.name}.vue` }, props.label)
+  h('a', { class: 'text-gray-700', href: `https://github.com/honk-ds/vue/tree/main/example/src/examples/${props.name}.vue` }, props.label)
 )
 
 export const PropsNotice = () => h('p', { class: 'text-12 mb-32' }, 'The props documented below have defaults set or are unique to this component, all typical HTML5 attributes are valid props. See Field for additional props.')

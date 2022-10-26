@@ -1,6 +1,6 @@
 {
   "name": "@honk-ds/vue",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "description": "Honk fabric components for Vue 3",
   "type": "module",
   "exports": {
@@ -31,10 +31,9 @@
   "dependencies": {
     "@eik/rollup-plugin": "^4.0.25",
     "@fabric-ds/core": "^0.0.13",
-    "@fabric-ds/css": "^1.1.5",
     "@finn-no/dom-focus-lock-fixed": "^1.0.6",
     "@floating-ui/dom": "^0.5.3",
-    "@honk-ds/css": "^0.0.12",
+    "@honk-ds/css": "^0.0.20",
     "create-v-model": "^2.1.2",
     "element-collapse": "^1.1.0",
     "femtobounce": "^1.0.0",
