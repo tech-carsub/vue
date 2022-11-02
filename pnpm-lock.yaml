@@ -7,7 +7,7 @@ specifiers:
   '@fabric-ds/core': ^0.0.13
   '@finn-no/dom-focus-lock-fixed': ^1.0.6
   '@floating-ui/dom': ^0.5.3
-  '@honk-ds/css': ^0.0.20
+  '@honk-ds/css': ^0.0.21
   '@rollup/plugin-babel': ^5.3.1
   '@rollup/plugin-commonjs': ^22.0.0
   '@rollup/plugin-node-resolve': ^13.3.0
@@ -35,7 +35,7 @@ dependencies:
   '@fabric-ds/core': 0.0.13
   '@finn-no/dom-focus-lock-fixed': 1.0.6
   '@floating-ui/dom': 0.5.4
-  '@honk-ds/css': 0.0.20
+  '@honk-ds/css': 0.0.21
   create-v-model: 2.2.0
   element-collapse: 1.1.0
   femtobounce: 1.0.0
@@ -1276,8 +1276,8 @@ packages:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
     dev: true
 
-  /@honk-ds/css/0.0.20:
-    resolution: {integrity: sha512-/cY14c3TdoeUoUgZfn6+DHpJsdr1PfeK7KtAPBZRNtTczfXu828z+5Ye3IkJyIZr8jcfd0VsnMYKfeh3y5eKkQ==}
+  /@honk-ds/css/0.0.21:
+    resolution: {integrity: sha512-Q6m8+fvX+RSCFa8dYF8adcNOtdY2TBRjw4PTZMkM9u+zFRdgBqMgxmRWcAz3liNscnfZBM9gZxH3Fqy5c4IYoQ==}
     dependencies:
       lit-html: 2.4.0
     dev: false
