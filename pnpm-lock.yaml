@@ -7,7 +7,7 @@ specifiers:
   '@fabric-ds/core': ^0.0.13
   '@finn-no/dom-focus-lock-fixed': ^1.0.6
   '@floating-ui/dom': ^0.5.3
-  '@honk-ds/css': ^0.0.23
+  '@honk-ds/css': ^0.0.40
   '@rollup/plugin-babel': ^5.3.1
   '@rollup/plugin-commonjs': ^22.0.0
   '@rollup/plugin-node-resolve': ^13.3.0
@@ -35,7 +35,7 @@ dependencies:
   '@fabric-ds/core': 0.0.13
   '@finn-no/dom-focus-lock-fixed': 1.0.6
   '@floating-ui/dom': 0.5.4
-  '@honk-ds/css': 0.0.23
+  '@honk-ds/css': 0.0.40
   create-v-model: 2.2.0
   element-collapse: 1.1.0
   femtobounce: 1.0.0
@@ -1276,10 +1276,10 @@ packages:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
     dev: true
 
-  /@honk-ds/css/0.0.23:
-    resolution: {integrity: sha512-DP4JeNn+9kBkQ9JhrLRRyqvJNQo8LqB6wTQ1k8fBthw1PMTp52EqQodWj1stMBHjumRKsCnjqziBbqQ/D15BLA==}
+  /@honk-ds/css/0.0.40:
+    resolution: {integrity: sha512-GppAO6JdkKQC8Mc2YpC6vfS/dA/CHAMCak8DvkpRlk/zRMgBAaBBd7QmMIBiru6eC2Wj6ABAbukreIWWC9DS5w==}
     dependencies:
-      lit-html: 2.4.0
+      lit-html: 2.5.0
     dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
@@ -2837,8 +2837,8 @@ packages:
       verror: 1.10.0
     dev: true
 
-  /lit-html/2.4.0:
-    resolution: {integrity: sha512-G6qXu4JNUpY6aaF2VMfaszhO9hlWw0hOTRFDmuMheg/nDYGB+2RztUSOyrzALAbr8Nh0Y7qjhYkReh3rPnplVg==}
+  /lit-html/2.5.0:
+    resolution: {integrity: sha512-bLHosg1XL3JRUcKdSVI0sLCs0y1wWrj2sqqAN3cZ7bDDPNgmDHH29RV48x6Wz3ZmkxIupaE+z7uXSZ/pXWAO1g==}
     dependencies:
       '@types/trusted-types': 2.0.2
     dev: false
